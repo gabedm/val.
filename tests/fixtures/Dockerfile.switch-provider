@@ -1,0 +1,7 @@
+FROM node:24-bookworm-slim
+WORKDIR /fixture
+COPY switch-provider.mjs ./switch-provider.mjs
+USER node
+ENV PORT=8080
+EXPOSE 8080
+CMD ["node", "switch-provider.mjs"]

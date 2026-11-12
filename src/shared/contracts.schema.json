@@ -1,0 +1,3839 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:val:contracts:0.6",
+  "$defs": {
+    "Money": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "enum": [
+            "GBP"
+          ]
+        },
+        "amountMinor": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "currency",
+        "amountMinor"
+      ],
+      "additionalProperties": false
+    },
+    "PositiveMoney": {
+      "type": "object",
+      "properties": {
+        "currency": { "type": "string", "enum": ["GBP"] },
+        "amountMinor": { "type": "integer", "minimum": 1 }
+      },
+      "required": ["currency", "amountMinor"],
+      "additionalProperties": false
+    },
+    "PaidOffer": {
+      "type": "object",
+      "properties": {
+        "introductoryAmount": { "$ref": "#/$defs/PositiveMoney" },
+        "introductoryCycles": { "type": "integer", "minimum": 1, "maximum": 12 },
+        "regularAmount": { "$ref": "#/$defs/PositiveMoney" },
+        "validFrom": { "type": "string", "format": "date-time" },
+        "eligibleUntil": { "type": "string", "format": "date-time" },
+        "firstChargeBasis": { "type": "string", "enum": ["BUYER_APPROVAL"] },
+        "eligibility": { "type": "string", "enum": ["ELIGIBLE", "INELIGIBLE", "UNKNOWN"] },
+        "setupFee": { "$ref": "#/$defs/Money" },
+        "commitmentMonths": { "type": "integer", "enum": [0] }
+      },
+      "required": ["introductoryAmount", "introductoryCycles", "regularAmount", "validFrom", "eligibleUntil", "firstChargeBasis", "eligibility", "setupFee", "commitmentMonths"],
+      "additionalProperties": false
+    },
+    "ValueComparison": {
+      "type": "object",
+      "properties": {
+        "assessedAt": { "type": "string", "format": "date-time" },
+        "horizonMonths": { "type": "integer", "enum": [12] },
+        "oldNextBillingAt": { "type": "string", "format": "date-time" },
+        "renewalEffectiveAt": { "type": "string", "format": "date-time" },
+        "announcedRenewal": { "$ref": "#/$defs/PositiveMoney" },
+        "currentTotal": { "$ref": "#/$defs/Money" },
+        "candidateTotal": { "$ref": "#/$defs/Money" },
+        "netSavingMinor": { "type": "integer" },
+        "basis": { "type": "string", "enum": ["AUTHORED_NOTICE_PROJECTION"] }
+      },
+      "required": ["assessedAt", "horizonMonths", "oldNextBillingAt", "renewalEffectiveAt", "announcedRenewal", "currentTotal", "candidateTotal", "netSavingMinor", "basis"],
+      "additionalProperties": false
+    },
+    "EmptyCommand": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "PolicyFields": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "requiredCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "editable_text",
+              "speaker_labels"
+            ]
+          },
+          "maxItems": 2,
+          "minItems": 1
+        },
+        "recurringCeiling": {
+          "$ref": "#/$defs/Money"
+        },
+        "preserveHistory": {
+          "type": "boolean"
+        },
+        "allowInvestigation": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "purpose",
+        "requiredCapabilities",
+        "recurringCeiling",
+        "preserveHistory",
+        "allowInvestigation"
+      ],
+      "additionalProperties": false
+    },
+    "Policy": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "requiredCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "editable_text",
+              "speaker_labels"
+            ]
+          },
+          "maxItems": 2,
+          "minItems": 1
+        },
+        "recurringCeiling": {
+          "$ref": "#/$defs/Money"
+        },
+        "preserveHistory": {
+          "type": "boolean"
+        },
+        "allowInvestigation": {
+          "type": "boolean"
+        },
+        "confirmedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "revision",
+        "purpose",
+        "requiredCapabilities",
+        "recurringCeiling",
+        "preserveHistory",
+        "allowInvestigation",
+        "confirmedAt"
+      ],
+      "additionalProperties": false
+    },
+    "PolicyDraft": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "requiredCapabilities": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "editable_text",
+              "speaker_labels"
+            ]
+          },
+          "maxItems": 2
+        },
+        "recurringCeiling": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Money"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "preserveHistory": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "allowInvestigation": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interpretationNotes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "unsupportedRequirements": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "purpose",
+        "requiredCapabilities",
+        "recurringCeiling",
+        "preserveHistory",
+        "allowInvestigation",
+        "interpretationNotes",
+        "unsupportedRequirements"
+      ],
+      "additionalProperties": false
+    },
+    "ModelRecommendation": {
+      "type": "object",
+      "properties": {
+        "action": {
+          "type": "string",
+          "enum": [
+            "stay",
+            "change_plan",
+            "switch",
+            "investigate"
+          ]
+        },
+        "candidateId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "action",
+        "candidateId",
+        "policyRevision",
+        "evidenceIds",
+        "explanation",
+        "uncertainties"
+      ],
+      "additionalProperties": false
+    },
+    "Recommendation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "action": {
+          "type": "string",
+          "enum": [
+            "stay",
+            "change_plan",
+            "switch",
+            "investigate"
+          ]
+        },
+        "candidateId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "explanation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "policyRevision",
+        "action",
+        "candidateId",
+        "evidenceIds",
+        "explanation",
+        "uncertainties",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "AccountSnapshot": {
+      "type": "object",
+      "properties": {
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_a",
+            "provider_b"
+          ]
+        },
+        "accountId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "planId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "subscriptionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entitlementRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "accessStatus": {
+          "type": "string",
+          "enum": [
+            "TRIAL",
+            "ACTIVE",
+            "EXIT_SCHEDULED",
+            "ENDED"
+          ]
+        },
+        "billingStatus": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "APPROVAL_PENDING",
+            "APPROVED",
+            "ACTIVE",
+            "SUSPENDED",
+            "CANCELLED",
+            "EXPIRED",
+            "UNKNOWN"
+          ]
+        },
+        "paidThrough": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "accessEndsAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidenceId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "caseId",
+        "providerId",
+        "accountId",
+        "planId",
+        "subscriptionId",
+        "entitlementRevision",
+        "accessStatus",
+        "billingStatus",
+        "paidThrough",
+        "accessEndsAt",
+        "observedAt",
+        "evidenceId"
+      ],
+      "additionalProperties": false
+    },
+    "PlanSummary": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_a",
+            "provider_b"
+          ]
+        },
+        "planId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "label": {
+          "type": "string",
+          "minLength": 1
+        },
+        "marketingText": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "candidateId",
+        "providerId",
+        "planId",
+        "label",
+        "marketingText"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateQuote": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_a",
+            "provider_b"
+          ]
+        },
+        "planId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recurringTotal": {
+          "$ref": "#/$defs/Money"
+        },
+        "dueNowTotal": {
+          "$ref": "#/$defs/Money"
+        },
+        "interval": {
+          "type": "string",
+          "enum": [
+            "MONTH"
+          ]
+        },
+        "intervalCount": {
+          "type": "integer",
+          "enum": [
+            1
+          ]
+        },
+        "taxMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "feesMinor": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "offer": { "$ref": "#/$defs/PaidOffer" },
+        "comparison": { "anyOf": [{ "$ref": "#/$defs/ValueComparison" }, { "type": "null" }] },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidenceId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "candidateId",
+        "providerId",
+        "planId",
+        "revision",
+        "recurringTotal",
+        "dueNowTotal",
+        "interval",
+        "intervalCount",
+        "taxMinor",
+        "feesMinor",
+        "observedAt",
+        "evidenceId"
+      ],
+      "additionalProperties": false
+    },
+    "CapabilityResult": {
+      "type": "object",
+      "properties": {
+        "capability": {
+          "type": "string",
+          "enum": [
+            "editable_text",
+            "speaker_labels"
+          ]
+        },
+        "passes": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "capability",
+        "passes",
+        "reason"
+      ],
+      "additionalProperties": false
+    },
+    "CandidateEvaluation": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quoteId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "capabilityResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CapabilityResult"
+          }
+        },
+        "eligible": {
+          "type": "boolean"
+        },
+        "rejectionReasons": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "candidateId",
+        "quoteId",
+        "policyRevision",
+        "evidenceIds",
+        "capabilityResults",
+        "eligible",
+        "rejectionReasons"
+      ],
+      "additionalProperties": false
+    },
+    "Evidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "provider_a",
+                "provider_b"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "accountId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "planId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "entitlementRevision": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "account",
+            "sample",
+            "quote",
+            "backup",
+            "import",
+            "payment",
+            "subscription",
+            "service_exit"
+          ]
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "artifactId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "summary": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "providerId",
+        "accountId",
+        "planId",
+        "entitlementRevision",
+        "kind",
+        "observedAt",
+        "artifactId",
+        "summary"
+      ],
+      "additionalProperties": false
+    },
+    "Artifact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "mimeType": {
+          "type": "string",
+          "enum": [
+            "text/plain",
+            "application/json"
+          ]
+        },
+        "content": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "mimeType",
+        "content",
+        "sha256",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "TranscriptTurn": {
+      "type": "object",
+      "properties": {
+        "speaker": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "speaker",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "Transcript": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/TranscriptTurn"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "title",
+        "turns"
+      ],
+      "additionalProperties": false
+    },
+    "ManifestRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "canonicalDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "id",
+        "canonicalDigest"
+      ],
+      "additionalProperties": false
+    },
+    "HistoryManifest": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_a",
+            "provider_b"
+          ]
+        },
+        "accountId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "integer",
+          "enum": [
+            1
+          ]
+        },
+        "count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "records": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ManifestRecord"
+          }
+        },
+        "manifestDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "artifactId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "providerId",
+        "accountId",
+        "version",
+        "count",
+        "records",
+        "manifestDigest",
+        "artifactId",
+        "observedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ImportResult": {
+      "type": "object",
+      "properties": {
+        "operationKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "destinationManifest": {
+          "$ref": "#/$defs/HistoryManifest"
+        },
+        "matchesSource": {
+          "type": "boolean"
+        },
+        "evidenceId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "operationKey",
+        "destinationManifest",
+        "matchesSource",
+        "evidenceId"
+      ],
+      "additionalProperties": false
+    },
+    "ServiceExitResult": {
+      "type": "object",
+      "properties": {
+        "operationKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "accountId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "SCHEDULED",
+            "ENDED"
+          ]
+        },
+        "accessEndsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "evidenceId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "operationKey",
+        "accountId",
+        "status",
+        "accessEndsAt",
+        "observedAt",
+        "evidenceId"
+      ],
+      "additionalProperties": false
+    },
+    "Overlap": {
+      "type": "object",
+      "properties": {
+        "oldPaidAmount": {
+          "$ref": "#/$defs/Money"
+        },
+        "oldPaidThrough": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "newDueNow": {
+          "$ref": "#/$defs/Money"
+        },
+        "possibleOldRenewal": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Money"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "oldNextBillingTime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "explanation": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "oldPaidAmount",
+        "oldPaidThrough",
+        "newDueNow",
+        "possibleOldRenewal",
+        "oldNextBillingTime",
+        "explanation"
+      ],
+      "additionalProperties": false
+    },
+    "PurchaseTerms": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_b"
+          ]
+        },
+        "planId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "quoteRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "dueNow": {
+          "$ref": "#/$defs/Money"
+        },
+        "recurring": {
+          "$ref": "#/$defs/Money"
+        },
+        "interval": {
+          "type": "string",
+          "enum": [
+            "MONTH"
+          ]
+        },
+        "intervalCount": {
+          "type": "integer",
+          "enum": [
+            1
+          ]
+        },
+        "oldSubscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oldAccessEndsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "overlap": {
+          "$ref": "#/$defs/Overlap"
+        },
+        "offer": { "$ref": "#/$defs/PaidOffer" },
+        "comparison": { "$ref": "#/$defs/ValueComparison" },
+        "backupManifestDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      },
+      "required": [
+        "candidateId",
+        "providerId",
+        "planId",
+        "quoteRevision",
+        "dueNow",
+        "recurring",
+        "interval",
+        "intervalCount",
+        "oldSubscriptionId",
+        "oldAccessEndsAt",
+        "overlap",
+        "backupManifestDigest"
+      ],
+      "additionalProperties": false
+    },
+    "PurchasePreview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "recommendationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "materialTerms": {
+          "$ref": "#/$defs/PurchaseTerms"
+        },
+        "backupEvidenceId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "ownerId",
+        "recommendationId",
+        "policyRevision",
+        "materialTerms",
+        "backupEvidenceId",
+        "previewHash",
+        "createdAt",
+        "expiresAt"
+      ],
+      "additionalProperties": false
+    },
+    "Consent": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previewId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "approvePurchase": {
+          "type": "boolean"
+        },
+        "approveOldExitAfterReadiness": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "consumedByOperationId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "consumedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revokedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "ownerId",
+        "sessionId",
+        "previewId",
+        "previewHash",
+        "approvePurchase",
+        "approveOldExitAfterReadiness",
+        "createdAt",
+        "consumedByOperationId",
+        "consumedAt",
+        "revokedAt"
+      ],
+      "additionalProperties": false
+    },
+    "ExitTerms": {
+      "type": "object",
+      "properties": {
+        "newSubscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "oldSubscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "effectiveRecurring": {
+          "$ref": "#/$defs/Money"
+        },
+        "oldAccessEndsAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "overlap": {
+          "$ref": "#/$defs/Overlap"
+        },
+        "offer": { "$ref": "#/$defs/PaidOffer" },
+        "comparison": { "$ref": "#/$defs/ValueComparison" },
+        "backupManifestDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "importManifestDigest": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "remainingExits": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "old_billing",
+              "old_service"
+            ]
+          }
+        }
+      },
+      "required": [
+        "newSubscriptionId",
+        "oldSubscriptionId",
+        "effectiveRecurring",
+        "oldAccessEndsAt",
+        "overlap",
+        "backupManifestDigest",
+        "importManifestDigest",
+        "remainingExits"
+      ],
+      "additionalProperties": false
+    },
+    "ExitReview": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "materialTerms": {
+          "$ref": "#/$defs/ExitTerms"
+        },
+        "readinessEvidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "reviewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "expiresAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "ownerId",
+        "transitionId",
+        "policyRevision",
+        "materialTerms",
+        "readinessEvidenceIds",
+        "reviewHash",
+        "createdAt",
+        "expiresAt"
+      ],
+      "additionalProperties": false
+    },
+    "ExitAuthorization": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sessionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transitionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "approveRemainingExits": {
+          "type": "boolean"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "consumedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "revokedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "ownerId",
+        "sessionId",
+        "transitionId",
+        "reviewId",
+        "reviewHash",
+        "approveRemainingExits",
+        "createdAt",
+        "consumedAt",
+        "revokedAt"
+      ],
+      "additionalProperties": false
+    },
+    "PaymentEvidence": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "providerId": {
+          "type": "string",
+          "enum": [
+            "provider_a",
+            "provider_b"
+          ]
+        },
+        "merchantContext": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transactionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "COMPLETED",
+            "DECLINED",
+            "PARTIALLY_REFUNDED",
+            "PENDING",
+            "REFUNDED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        },
+        "grossAmount": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ObservedMoney"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "transactionTime": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "queryStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "queryEnd": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceArtifactId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "providerId",
+        "merchantContext",
+        "subscriptionId",
+        "transactionId",
+        "status",
+        "grossAmount",
+        "transactionTime",
+        "queryStart",
+        "queryEnd",
+        "observedAt",
+        "sourceArtifactId"
+      ],
+      "additionalProperties": false
+    },
+    "PaymentPeriod": {
+      "type": "object",
+      "properties": {
+        "subscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "paymentEvidenceId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "periodStart": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "paidThrough": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "boundaryEvidenceId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "subscriptionId",
+        "paymentEvidenceId",
+        "periodStart",
+        "paidThrough",
+        "boundaryEvidenceId"
+      ],
+      "additionalProperties": false
+    },
+    "Receipt": {
+      "type": "object",
+      "properties": {
+        "newSubscriptionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "newBillingStatus": {
+          "type": "string",
+          "enum": [
+            "NONE",
+            "APPROVAL_PENDING",
+            "APPROVED",
+            "ACTIVE",
+            "SUSPENDED",
+            "CANCELLED",
+            "EXPIRED",
+            "UNKNOWN"
+          ]
+        },
+        "duePayment": {
+          "type": "string",
+          "enum": [
+            "NOT_STARTED",
+            "PENDING",
+            "VERIFIED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        },
+        "paymentEvidenceId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "capability": {
+          "type": "string",
+          "enum": [
+            "NOT_STARTED",
+            "PENDING",
+            "VERIFIED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        },
+        "capabilityEvidenceId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "history": {
+          "type": "string",
+          "enum": [
+            "NOT_STARTED",
+            "PENDING",
+            "VERIFIED",
+            "FAILED",
+            "UNKNOWN"
+          ]
+        },
+        "historyEvidenceId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "oldSubscriptionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "oldBilling": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "CANCELLED",
+            "UNKNOWN"
+          ]
+        },
+        "oldService": {
+          "type": "string",
+          "enum": [
+            "ACTIVE",
+            "EXIT_SCHEDULED",
+            "ENDED",
+            "UNKNOWN"
+          ]
+        },
+        "oldAccessEndsAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "newSubscriptionId",
+        "newBillingStatus",
+        "duePayment",
+        "paymentEvidenceId",
+        "capability",
+        "capabilityEvidenceId",
+        "history",
+        "historyEvidenceId",
+        "oldSubscriptionId",
+        "oldBilling",
+        "oldService",
+        "oldAccessEndsAt",
+        "message"
+      ],
+      "additionalProperties": false
+    },
+    "Transition": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "consentId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "exitAuthorizationId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SETUP",
+            "MONITORING",
+            "INVESTIGATING",
+            "STAY",
+            "NEEDS_REVIEW",
+            "AWAITING_CONSENT",
+            "AWAITING_PAYPAL",
+            "VERIFYING_NEW",
+            "EXITING_OLD",
+            "COMPLETE",
+            "ATTENTION_REQUIRED"
+          ]
+        },
+        "newSubscriptionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "oldSubscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "receipt": {
+          "$ref": "#/$defs/Receipt"
+        },
+        "lastError": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "acceptedPurchaseTerms": {
+          "$ref": "#/$defs/PurchaseTerms"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "consentId",
+        "exitAuthorizationId",
+        "state",
+        "newSubscriptionId",
+        "oldSubscriptionId",
+        "receipt",
+        "lastError",
+        "createdAt",
+        "updatedAt",
+        "acceptedPurchaseTerms"
+      ],
+      "additionalProperties": false
+    },
+    "Operation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "transitionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "setup_create",
+            "replacement_create",
+            "backup",
+            "activate_account",
+            "import",
+            "cancel_old_billing",
+            "exit_old_service",
+            "cleanup",
+            "probe_cancel"
+          ]
+        },
+        "operationKey": {
+          "type": "string",
+          "minLength": 1
+        },
+        "targetId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "PLANNED",
+            "IN_FLIGHT",
+            "UNKNOWN",
+            "SUCCEEDED",
+            "FAILED"
+          ]
+        },
+        "claimGeneration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "requestId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "remoteId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "attempts": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dispatchedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "resultEvidenceId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "transitionId",
+        "kind",
+        "operationKey",
+        "targetId",
+        "status",
+        "claimGeneration",
+        "requestId",
+        "remoteId",
+        "attempts",
+        "dispatchedAt",
+        "resultEvidenceId",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "CaseRecord": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario": {
+          "type": "string",
+          "enum": [
+            "feature_removed",
+            "grandfathered",
+            "value_offer"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SETUP",
+            "MONITORING",
+            "INVESTIGATING",
+            "STAY",
+            "NEEDS_REVIEW",
+            "AWAITING_CONSENT",
+            "AWAITING_PAYPAL",
+            "VERIFYING_NEW",
+            "EXITING_OLD",
+            "COMPLETE",
+            "ATTENTION_REQUIRED"
+          ]
+        },
+        "reason": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "advice_only",
+                "no_candidate",
+                "evidence_missing",
+                "permission_required",
+                "approval_unresolved",
+                "authority_changed",
+                "operation_failed"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "initialAccountId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "replacementAccountId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "archivedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "ownerId",
+        "scenario",
+        "state",
+        "reason",
+        "initialAccountId",
+        "replacementAccountId",
+        "archivedAt",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "CaseSummary": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scenario": {
+          "type": "string",
+          "enum": [
+            "feature_removed",
+            "grandfathered",
+            "value_offer"
+          ]
+        },
+        "state": {
+          "type": "string",
+          "enum": [
+            "SETUP",
+            "MONITORING",
+            "INVESTIGATING",
+            "STAY",
+            "NEEDS_REVIEW",
+            "AWAITING_CONSENT",
+            "AWAITING_PAYPAL",
+            "VERIFYING_NEW",
+            "EXITING_OLD",
+            "COMPLETE",
+            "ATTENTION_REQUIRED"
+          ]
+        },
+        "archivedAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "scenario",
+        "state",
+        "archivedAt",
+        "createdAt"
+      ],
+      "additionalProperties": false
+    },
+    "WhatIfCommand": {
+      "type": "object",
+      "properties": {
+        "expectedPolicyRevision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "overrides": {
+          "type": "object",
+          "properties": {
+            "recurringCeiling": {
+              "$ref": "#/$defs/Money"
+            },
+            "requiredCapabilities": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "editable_text",
+                  "speaker_labels"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          },
+          "minProperties": 1,
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "expectedPolicyRevision",
+        "overrides"
+      ],
+      "additionalProperties": false
+    },
+    "WhatIfResult": {
+      "type": "object",
+      "properties": {
+        "advisory": {
+          "const": true
+        },
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "baseline": {
+          "type": "object",
+          "properties": {
+            "policyRevision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "entitlementRevision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "caseState": {
+              "type": "string",
+              "enum": [
+                "SETUP",
+                "MONITORING",
+                "INVESTIGATING",
+                "STAY",
+                "NEEDS_REVIEW",
+                "AWAITING_CONSENT",
+                "AWAITING_PAYPAL",
+                "VERIFYING_NEW",
+                "EXITING_OLD",
+                "COMPLETE",
+                "ATTENTION_REQUIRED"
+              ]
+            },
+            "agentFingerprint": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "policyRevision",
+            "entitlementRevision",
+            "caseState",
+            "agentFingerprint"
+          ],
+          "additionalProperties": false
+        },
+        "proposed": {
+          "type": "object",
+          "properties": {
+            "recurringCeiling": {
+              "$ref": "#/$defs/Money"
+            },
+            "requiredCapabilities": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": [
+                  "editable_text",
+                  "speaker_labels"
+                ]
+              },
+              "minItems": 1,
+              "maxItems": 2,
+              "uniqueItems": true
+            }
+          },
+          "required": [
+            "recurringCeiling",
+            "requiredCapabilities"
+          ],
+          "additionalProperties": false
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "current",
+            "stale"
+          ]
+        },
+        "staleReason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "verdict": {
+          "type": "string",
+          "enum": [
+            "accepted",
+            "rejected",
+            "review"
+          ]
+        },
+        "outcome": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "action": {
+                  "type": "string",
+                  "enum": [
+                    "stay",
+                    "change_plan",
+                    "switch",
+                    "investigate"
+                  ]
+                },
+                "candidateId": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "reason": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "advice_only",
+                        "no_candidate",
+                        "evidence_missing",
+                        "permission_required",
+                        "approval_unresolved",
+                        "authority_changed",
+                        "operation_failed"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "action",
+                "candidateId",
+                "reason"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modelRecommendation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/ModelRecommendation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "problem": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "current": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "artifactId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "capabilityResults": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/CapabilityResult"
+                  }
+                }
+              },
+              "required": [
+                "planId",
+                "artifactId",
+                "capabilityResults"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "candidates": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "candidateId": {
+                "type": "string",
+                "minLength": 1
+              },
+              "providerId": {
+                "type": "string",
+                "enum": [
+                  "provider_a",
+                  "provider_b"
+                ]
+              },
+              "label": {
+                "type": "string"
+              },
+              "recurringTotal": {
+                "$ref": "#/$defs/Money"
+              },
+              "dueNowTotal": { "$ref": "#/$defs/Money" },
+              "offer": { "$ref": "#/$defs/PaidOffer" },
+              "comparison": { "anyOf": [{ "$ref": "#/$defs/ValueComparison" }, { "type": "null" }] },
+              "withinCeiling": {
+                "type": "boolean"
+              },
+              "tested": {
+                "type": "boolean"
+              },
+              "eligible": {
+                "type": "boolean"
+              },
+              "capabilityResults": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/$defs/CapabilityResult"
+                }
+              },
+              "artifactId": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "rejectionReasons": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              }
+            },
+            "required": [
+              "candidateId",
+              "providerId",
+              "label",
+              "recurringTotal",
+              "withinCeiling",
+              "tested",
+              "eligible",
+              "capabilityResults",
+              "artifactId",
+              "rejectionReasons"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "evidenceExpiresAt": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "date-time"
+        },
+        "usage": {
+          "type": "object",
+          "properties": {
+            "modelCalls": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "inputTokens": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "outputTokens": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "reasoningTokens": {
+              "type": "integer",
+              "minimum": 0
+            }
+          },
+          "required": [
+            "modelCalls",
+            "inputTokens",
+            "outputTokens",
+            "reasoningTokens"
+          ],
+          "additionalProperties": false
+        },
+        "elapsedMs": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "version": {
+          "type": "object",
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "promptVersion": {
+              "type": "string"
+            },
+            "fingerprint": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "required": [
+            "model",
+            "promptVersion",
+            "fingerprint"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "advisory",
+        "id",
+        "caseId",
+        "createdAt",
+        "baseline",
+        "proposed",
+        "status",
+        "staleReason",
+        "verdict",
+        "outcome",
+        "modelRecommendation",
+        "problem",
+        "current",
+        "candidates",
+        "evidenceExpiresAt",
+        "usage",
+        "elapsedMs",
+        "version"
+      ],
+      "additionalProperties": false
+    },
+    "CatalogueResponse": {
+      "type": "object",
+      "properties": {
+        "catalogue": {
+          "type": "object",
+          "properties": {
+            "schema_version": {
+              "type": "string"
+            },
+            "researched_on": {
+              "type": "string"
+            },
+            "status": {
+              "type": "string"
+            },
+            "scope": {
+              "type": "string"
+            },
+            "categories": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "count": {
+                    "type": "integer"
+                  }
+                },
+                "required": [
+                  "id",
+                  "label",
+                  "count"
+                ],
+                "additionalProperties": true
+              }
+            },
+            "services": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "service": {
+                    "type": "string"
+                  },
+                  "plan": {
+                    "type": "string"
+                  },
+                  "category": {
+                    "type": "string"
+                  },
+                  "comparison_group": {
+                    "type": "string"
+                  },
+                  "purpose": {
+                    "type": "string"
+                  },
+                  "audience": {
+                    "type": "string"
+                  },
+                  "capability_tags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "constraints": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "price": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "sources": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "research_flags": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "evidence": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "additionalProperties": true
+                    }
+                  },
+                  "execution": {
+                    "type": "object",
+                    "additionalProperties": true
+                  }
+                },
+                "required": [
+                  "id",
+                  "service",
+                  "plan",
+                  "category",
+                  "comparison_group",
+                  "purpose",
+                  "audience",
+                  "capability_tags",
+                  "constraints",
+                  "price",
+                  "sources",
+                  "research_flags",
+                  "evidence",
+                  "execution"
+                ],
+                "additionalProperties": true
+              }
+            }
+          },
+          "required": [
+            "schema_version",
+            "researched_on",
+            "status",
+            "scope",
+            "categories",
+            "services"
+          ],
+          "additionalProperties": true
+        },
+        "logos": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        }
+      },
+      "required": [
+        "catalogue",
+        "logos"
+      ],
+      "additionalProperties": false
+    },
+    "CaseSnapshot": {
+      "type": "object",
+      "properties": {
+        "case": {
+          "$ref": "#/$defs/CaseRecord"
+        },
+        "policy": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Policy"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "recommendation": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Recommendation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CandidateEvaluation"
+          }
+        },
+        "transition": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/Transition"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "receipt": {
+          "$ref": "#/$defs/Receipt"
+        },
+        "pendingJobId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currentAccount": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/AccountSnapshot"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "currentQuote": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/CandidateQuote"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluationQuotes": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CandidateQuote"
+          }
+        },
+        "currentOutput": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "planId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "artifactId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "capabilityResults": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/$defs/CapabilityResult"
+                  }
+                },
+                "observedAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "planId",
+                "artifactId",
+                "capabilityResults",
+                "observedAt"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "activeFaults": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "price_change",
+              "output_failure",
+              "import_failure",
+              "timeout"
+            ]
+          },
+          "uniqueItems": true
+        },
+        "handover": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "operationId": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "kind": {
+                  "type": "string",
+                  "enum": [
+                    "setup_create",
+                    "replacement_create",
+                    "backup",
+                    "activate_account",
+                    "import",
+                    "cancel_old_billing",
+                    "exit_old_service",
+                    "cleanup",
+                    "probe_cancel"
+                  ]
+                },
+                "status": {
+                  "type": "string",
+                  "enum": [
+                    "PLANNED",
+                    "IN_FLIGHT",
+                    "UNKNOWN",
+                    "SUCCEEDED",
+                    "FAILED"
+                  ]
+                },
+                "billingStatus": {
+                  "anyOf": [
+                    {
+                      "type": "string",
+                      "enum": [
+                        "NONE",
+                        "APPROVAL_PENDING",
+                        "APPROVED",
+                        "ACTIVE",
+                        "SUSPENDED",
+                        "CANCELLED",
+                        "EXPIRED",
+                        "UNKNOWN"
+                      ]
+                    },
+                    {
+                      "type": "null"
+                    }
+                  ]
+                },
+                "paymentStatus": {
+                  "type": "string",
+                  "enum": [
+                    "NOT_STARTED",
+                    "PENDING",
+                    "VERIFIED",
+                    "FAILED",
+                    "UNKNOWN"
+                  ]
+                },
+                "note": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "approvalUrl": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "retryable": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "operationId",
+                "kind",
+                "status",
+                "billingStatus",
+                "paymentStatus",
+                "note",
+                "approvalUrl",
+                "retryable"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "investigationRun": {
+          "anyOf": [
+            {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "outcome": {
+                  "type": "string",
+                  "enum": [
+                    "accepted",
+                    "rejected",
+                    "review"
+                  ]
+                },
+                "model": {
+                  "type": "string"
+                },
+                "promptVersion": {
+                  "type": "string"
+                },
+                "usage": {
+                  "type": "object",
+                  "properties": {
+                    "modelCalls": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "inputTokens": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "outputTokens": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "reasoningTokens": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "modelCalls",
+                    "inputTokens",
+                    "outputTokens",
+                    "reasoningTokens"
+                  ],
+                  "additionalProperties": false
+                },
+                "elapsedMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "createdAt": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "required": [
+                "id",
+                "outcome",
+                "model",
+                "promptVersion",
+                "usage",
+                "elapsedMs",
+                "createdAt"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "availablePlans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PlanSummary"
+          }
+        }
+      },
+      "required": [
+        "case",
+        "policy",
+        "recommendation",
+        "evaluations",
+        "transition",
+        "receipt",
+        "pendingJobId",
+        "currentAccount",
+        "currentQuote",
+        "evaluationQuotes",
+        "currentOutput",
+        "activeFaults",
+        "handover",
+        "investigationRun",
+        "availablePlans"
+      ],
+      "additionalProperties": false
+    },
+    "SessionView": {
+      "type": "object",
+      "properties": {
+        "authenticated": {
+          "type": "boolean"
+        },
+        "role": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "reviewer",
+                "admin"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ownerId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "csrfToken": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "authenticated",
+        "role",
+        "ownerId",
+        "csrfToken"
+      ],
+      "additionalProperties": false
+    },
+    "LoginResult": {
+      "type": "object",
+      "properties": {
+        "session": {
+          "$ref": "#/$defs/SessionView"
+        },
+        "newOwnerRecoveryCode": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "session",
+        "newOwnerRecoveryCode"
+      ],
+      "additionalProperties": false
+    },
+    "AsyncCommandResult": {
+      "type": "object",
+      "properties": {
+        "jobId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "jobId",
+        "caseId"
+      ],
+      "additionalProperties": false
+    },
+    "ApprovalResult": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subscriptionId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "approvalUrl": {
+          "type": "string",
+          "format": "uri"
+        }
+      },
+      "required": [
+        "operationId",
+        "subscriptionId",
+        "approvalUrl"
+      ],
+      "additionalProperties": false
+    },
+    "LoginCommand": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "minLength": 1
+        },
+        "password": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "username",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    "RecoveryCommand": {
+      "type": "object",
+      "properties": {
+        "recoveryCode": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "recoveryCode"
+      ],
+      "additionalProperties": false
+    },
+    "CreateCaseCommand": {
+      "type": "object",
+      "properties": {
+        "scenario": {
+          "type": "string",
+          "enum": [
+            "feature_removed",
+            "grandfathered",
+            "value_offer"
+          ]
+        }
+      },
+      "required": [
+        "scenario"
+      ],
+      "additionalProperties": false
+    },
+    "DraftCommand": {
+      "type": "object",
+      "properties": {
+        "purpose": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        }
+      },
+      "required": [
+        "purpose"
+      ],
+      "additionalProperties": false
+    },
+    "PolicyCommand": {
+      "type": "object",
+      "properties": {
+        "policy": {
+          "$ref": "#/$defs/PolicyFields"
+        },
+        "expectedRevision": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "policy",
+        "expectedRevision"
+      ],
+      "additionalProperties": false
+    },
+    "CheckCommand": {
+      "type": "object",
+      "properties": {
+        "expectedPolicyRevision": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "expectedPolicyRevision"
+      ],
+      "additionalProperties": false
+    },
+    "ScenarioCommand": {
+      "type": "object",
+      "properties": {
+        "scenario": {
+          "type": "string",
+          "enum": [
+            "feature_removed",
+            "grandfathered",
+            "value_offer"
+          ]
+        }
+      },
+      "required": [
+        "scenario"
+      ],
+      "additionalProperties": false
+    },
+    "PreviewCommand": {
+      "type": "object",
+      "properties": {
+        "recommendationId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "recommendationId"
+      ],
+      "additionalProperties": false
+    },
+    "ConsentCommand": {
+      "type": "object",
+      "properties": {
+        "previewId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "previewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "approvePurchase": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        },
+        "approveOldExitAfterReadiness": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        }
+      },
+      "required": [
+        "previewId",
+        "previewHash",
+        "approvePurchase",
+        "approveOldExitAfterReadiness"
+      ],
+      "additionalProperties": false
+    },
+    "CheckoutCommand": {
+      "type": "object",
+      "properties": {
+        "consentId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "consentId"
+      ],
+      "additionalProperties": false
+    },
+    "ReturnCommand": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "returnToken": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subscriptionId": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "outcome": {
+          "type": "string",
+          "enum": [
+            "approved",
+            "cancelled"
+          ]
+        }
+      },
+      "required": [
+        "operationId",
+        "returnToken",
+        "subscriptionId",
+        "outcome"
+      ],
+      "additionalProperties": false
+    },
+    "ExitReviewCommand": {
+      "type": "object",
+      "properties": {
+        "transitionId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "transitionId"
+      ],
+      "additionalProperties": false
+    },
+    "ExitAuthorizationCommand": {
+      "type": "object",
+      "properties": {
+        "reviewId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reviewHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "approveRemainingExits": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        }
+      },
+      "required": [
+        "reviewId",
+        "reviewHash",
+        "approveRemainingExits"
+      ],
+      "additionalProperties": false
+    },
+    "PauseExitsCommand": {
+      "type": "object",
+      "properties": {
+        "transitionId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "transitionId"
+      ],
+      "additionalProperties": false
+    },
+    "RetryCommand": {
+      "type": "object",
+      "properties": {
+        "operationId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "operationId"
+      ],
+      "additionalProperties": false
+    },
+    "ResetCommand": {
+      "type": "object",
+      "properties": {
+        "acknowledgeEarlierTransitionContinues": {
+          "type": "boolean",
+          "enum": [
+            true
+          ]
+        }
+      },
+      "required": [
+        "acknowledgeEarlierTransitionContinues"
+      ],
+      "additionalProperties": false
+    },
+    "FaultCommand": {
+      "type": "object",
+      "properties": {
+        "fault": {
+          "type": "string",
+          "enum": [
+            "price_change",
+            "output_failure",
+            "import_failure",
+            "timeout",
+            "provider_instruction",
+            "stale_evidence"
+          ]
+        },
+        "enabled": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "fault",
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "CleanupCommand": {
+      "type": "object",
+      "properties": {
+        "expectedClaimGeneration": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "expectedClaimGeneration"
+      ],
+      "additionalProperties": false
+    },
+    "ReadAccountArgs": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "ListPlansArgs": {
+      "type": "object",
+      "properties": {},
+      "required": [],
+      "additionalProperties": false
+    },
+    "GetQuoteArgs": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "candidateId"
+      ],
+      "additionalProperties": false
+    },
+    "TestCandidateArgs": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "candidateId"
+      ],
+      "additionalProperties": false
+    },
+    "ReadArtifactArgs": {
+      "type": "object",
+      "properties": {
+        "artifactId": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "artifactId"
+      ],
+      "additionalProperties": false
+    },
+    "ReadAccountResult": {
+      "type": "object",
+      "properties": {
+        "account": {
+          "$ref": "#/$defs/AccountSnapshot"
+        },
+        "sample": {
+          "$ref": "#/$defs/Artifact"
+        },
+        "capabilityResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CapabilityResult"
+          }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "account",
+        "sample",
+        "capabilityResults",
+        "evidenceIds"
+      ],
+      "additionalProperties": false
+    },
+    "ListPlansResult": {
+      "type": "object",
+      "properties": {
+        "plans": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/PlanSummary"
+          }
+        }
+      },
+      "required": [
+        "plans"
+      ],
+      "additionalProperties": false
+    },
+    "GetQuoteResult": {
+      "type": "object",
+      "properties": {
+        "quote": {
+          "$ref": "#/$defs/CandidateQuote"
+        },
+        "replacementCeiling": {
+          "$ref": "#/$defs/Money"
+        },
+        "withinCeiling": {
+          "type": "boolean"
+        },
+        "comparisonSummary": {
+          "type": "string",
+          "maxLength": 700
+        }
+      },
+      "required": [
+        "quote",
+        "replacementCeiling",
+        "withinCeiling"
+      ],
+      "additionalProperties": false
+    },
+    "TestCandidateResult": {
+      "type": "object",
+      "properties": {
+        "candidateId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact": {
+          "$ref": "#/$defs/Artifact"
+        },
+        "capabilityResults": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/CapabilityResult"
+          }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "candidateId",
+        "artifact",
+        "capabilityResults",
+        "evidenceIds"
+      ],
+      "additionalProperties": false
+    },
+    "ReadArtifactResult": {
+      "type": "object",
+      "properties": {
+        "artifact": {
+          "$ref": "#/$defs/Artifact"
+        },
+        "evidenceIds": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      },
+      "required": [
+        "artifact",
+        "evidenceIds"
+      ],
+      "additionalProperties": false
+    },
+    "ObservedMoney": {
+      "type": "object",
+      "properties": {
+        "currency": {
+          "type": "string",
+          "pattern": "^[A-Z]{3}$"
+        },
+        "amountMinor": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "currency",
+        "amountMinor"
+      ],
+      "additionalProperties": false
+    },
+    "Job": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "caseId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "eventId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "policyRevision": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "QUEUED",
+            "RUNNING",
+            "COMPLETED",
+            "FAILED"
+          ]
+        },
+        "claimOwner": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "claimGeneration": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "leaseExpiresAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "heartbeatAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "caseId",
+        "eventId",
+        "policyRevision",
+        "status",
+        "claimOwner",
+        "claimGeneration",
+        "leaseExpiresAt",
+        "heartbeatAt",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    },
+    "StoredOperation": {
+      "type": "object",
+      "properties": {
+        "operation": {
+          "$ref": "#/$defs/Operation"
+        },
+        "ownerId": {
+          "type": "string",
+          "minLength": 1
+        },
+        "claimOwner": {
+          "anyOf": [
+            {
+              "type": "string",
+              "minLength": 1
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "leaseExpiresAt": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "requestBody": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "authorityHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "returnTokenHash": {
+          "anyOf": [
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "operation",
+        "ownerId",
+        "claimOwner",
+        "leaseExpiresAt",
+        "requestBody",
+        "authorityHash",
+        "returnTokenHash"
+      ],
+      "additionalProperties": false
+    },
+    "SampleTurn": {
+      "type": "object",
+      "properties": {
+        "speaker": {
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "speaker",
+        "text"
+      ],
+      "additionalProperties": false
+    },
+    "SampleOutput": {
+      "type": "object",
+      "properties": {
+        "editableText": {
+          "type": "string"
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SampleTurn"
+          }
+        }
+      },
+      "required": [
+        "editableText",
+        "turns"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

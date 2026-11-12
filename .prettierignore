@@ -1,0 +1,12 @@
+node_modules/
+private/
+dist/
+evidence/
+migrations/
+fixtures/
+docs/build-pack/
+src/client/public/logos/
+package-lock.json
+src/shared/*.types.ts
+src/shared/*.schema.json
+.env*

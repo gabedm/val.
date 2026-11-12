@@ -1,0 +1,61 @@
+{
+  "status": "pass",
+  "scope": "Structural and scope checks only; not live price, plan entitlement or integration validation.",
+  "services": 200,
+  "categories": [
+    {
+      "label": "TV & film",
+      "count": 20
+    },
+    {
+      "label": "Music & audiobooks",
+      "count": 20
+    },
+    {
+      "label": "Games",
+      "count": 20
+    },
+    {
+      "label": "Fitness & wellbeing",
+      "count": 20
+    },
+    {
+      "label": "Learning & languages",
+      "count": 20
+    },
+    {
+      "label": "Notes & productivity",
+      "count": 20
+    },
+    {
+      "label": "Design & creation",
+      "count": 20
+    },
+    {
+      "label": "Storage & privacy",
+      "count": 20
+    },
+    {
+      "label": "Reading & news",
+      "count": 20
+    },
+    {
+      "label": "Everyday & delivery",
+      "count": 20
+    }
+  ],
+  "distinct_primary_price_urls": 200,
+  "comparison_groups": 88,
+  "capability_tags": 273,
+  "records_with_research_flags": 41,
+  "checks": [
+    "200 unique services",
+    "20 services per category",
+    "positive sourced prices",
+    "taxonomy membership",
+    "billing distinctions",
+    "source-register coverage",
+    "unknown entitlements",
+    "execution disabled"
+  ]
+}

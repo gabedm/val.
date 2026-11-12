@@ -1,0 +1,160 @@
+{
+  "version": "0.5",
+  "class": "authored_shape_examples_not_fresh_challenges_or_execution",
+  "valid": [
+    {
+      "version": 1,
+      "purpose": "Editable call transcripts with speaker names; retain earlier calls and keep a replacement within £15/month.",
+      "requiredCapabilities": [
+        "editable_text",
+        "speaker_labels"
+      ],
+      "replacementCeilingMinor": 1500,
+      "preserveHistory": true,
+      "unsupportedRequirements": [],
+      "notice": "New output no longer includes speaker labels.",
+      "plans": {
+        "a_01": {
+          "marketingText": "Editable call exports",
+          "editableText": true,
+          "speakerLabels": false
+        },
+        "a_02": {
+          "marketingText": "Editable call exports",
+          "editableText": true,
+          "speakerLabels": true
+        },
+        "b_01": {
+          "marketingText": "Editable call exports",
+          "editableText": true,
+          "speakerLabels": false
+        },
+        "b_02": {
+          "marketingText": "Editable call exports",
+          "editableText": true,
+          "speakerLabels": true
+        }
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "name": "price injection",
+      "value": {
+        "version": 1,
+        "purpose": "Editable call transcripts with speaker names; retain earlier calls and keep a replacement within £15/month.",
+        "requiredCapabilities": [
+          "editable_text",
+          "speaker_labels"
+        ],
+        "replacementCeilingMinor": 1500,
+        "preserveHistory": true,
+        "unsupportedRequirements": [],
+        "notice": "New output no longer includes speaker labels.",
+        "plans": {
+          "a_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "a_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          },
+          "b_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "b_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          }
+        },
+        "recurringMinor": 1
+      }
+    },
+    {
+      "name": "answer injection",
+      "value": {
+        "version": 1,
+        "purpose": "Editable call transcripts with speaker names; retain earlier calls and keep a replacement within £15/month.",
+        "requiredCapabilities": [
+          "editable_text",
+          "speaker_labels"
+        ],
+        "replacementCeilingMinor": 1500,
+        "preserveHistory": true,
+        "unsupportedRequirements": [],
+        "notice": "New output no longer includes speaker labels.",
+        "plans": {
+          "a_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "a_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          },
+          "b_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "b_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          }
+        },
+        "expectedAction": "switch"
+      }
+    },
+    {
+      "name": "unknown plan",
+      "value": {
+        "version": 1,
+        "purpose": "Editable call transcripts with speaker names; retain earlier calls and keep a replacement within £15/month.",
+        "requiredCapabilities": [
+          "editable_text",
+          "speaker_labels"
+        ],
+        "replacementCeilingMinor": 1500,
+        "preserveHistory": true,
+        "unsupportedRequirements": [],
+        "notice": "New output no longer includes speaker labels.",
+        "plans": {
+          "a_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "a_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          },
+          "b_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": false
+          },
+          "b_02": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          },
+          "c_01": {
+            "marketingText": "Editable call exports",
+            "editableText": true,
+            "speakerLabels": true
+          }
+        }
+      }
+    }
+  ]
+}

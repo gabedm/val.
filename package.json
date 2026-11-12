@@ -1,0 +1,67 @@
+{
+  "name": "val",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev:server": "tsx watch src/server/index.ts",
+    "dev:client": "vite",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "build": "vite build",
+    "build:public": "node scripts/build-profile.mjs public",
+    "build:judge": "node scripts/build-profile.mjs judge",
+    "start": "node --import tsx src/server/index.ts",
+    "start:public": "node scripts/start-profile.mjs public",
+    "start:judge": "node scripts/start-profile.mjs judge",
+    "contracts": "json2ts --unreachableDefinitions --bannerComment \"\" -i src/shared/contracts.schema.json -o src/shared/contracts.types.ts && json2ts --bannerComment \"\" -i src/shared/challenger.schema.json -o src/shared/challenger.types.ts",
+    "db:local": "tsx scripts/local-postgres.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx scripts/migrate.ts",
+    "setup:plans": "tsx scripts/setup-plans.ts",
+    "hash-password": "tsx scripts/hash-password.ts",
+    "evals": "tsx scripts/run-agent-evals.ts",
+    "security:scan": "node scripts/security-source-scan.mjs",
+    "security:history": "node scripts/security-source-scan.mjs --history",
+    "format": "prettier --write src scripts tests *.config.ts --ignore-unknown",
+    "format:check": "prettier --check src scripts tests *.config.ts --ignore-unknown"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "1.1.0",
+    "ajv": "8.20.0",
+    "ajv-formats": "3.0.1",
+    "cookie": "2.0.1",
+    "drizzle-orm": "0.45.3",
+    "express": "5.2.1",
+    "google-auth-library": "11.3.3",
+    "openai": "7.27.0",
+    "pg": "8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "tldts": "7.4.19",
+    "tsx": "4.23.15"
+  },
+  "devDependencies": {
+    "@types/express": "5.0.6",
+    "@types/node": "26.6.4",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.1.1",
+    "drizzle-kit": "0.31.11",
+    "embedded-postgres": "18.4.0-beta.17",
+    "json-schema-to-typescript": "16.0.0",
+    "prettier": "3.9.9",
+    "typescript": "7.0.2",
+    "vite": "8.3.3",
+    "vitest": "5.0.3"
+  },
+  "overrides": {
+    "@esbuild-kit/core-utils": {
+      "esbuild": "0.25.12"
+    }
+  }
+}

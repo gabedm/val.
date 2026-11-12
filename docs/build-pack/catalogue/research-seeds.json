@@ -1,0 +1,862 @@
+[
+  [
+    "video",
+    "TV & film",
+    [
+      [
+        "Netflix",
+        "https://help.netflix.com/en/node/24926"
+      ],
+      [
+        "Disney+",
+        "https://www.disneyplus.com/"
+      ],
+      [
+        "Hulu",
+        "https://www.hulu.com/"
+      ],
+      [
+        "HBO Max",
+        "https://www.hbomax.com/"
+      ],
+      [
+        "Paramount+",
+        "https://www.paramountplus.com/"
+      ],
+      [
+        "Peacock",
+        "https://www.peacocktv.com/plans/all-monthly"
+      ],
+      [
+        "Apple TV",
+        "https://www.apple.com/apple-tv/"
+      ],
+      [
+        "Prime Video",
+        "https://www.amazon.com/gp/video/offers"
+      ],
+      [
+        "NOW",
+        "https://www.nowtv.com/membership"
+      ],
+      [
+        "BritBox",
+        "https://www.britbox.com/us/"
+      ],
+      [
+        "Acorn TV",
+        "https://acorn.tv/"
+      ],
+      [
+        "Shudder",
+        "https://www.shudder.com/"
+      ],
+      [
+        "MUBI",
+        "https://mubi.com/en/us"
+      ],
+      [
+        "The Criterion Channel",
+        "https://www.criterionchannel.com/"
+      ],
+      [
+        "Crunchyroll",
+        "https://www.crunchyroll.com/premium"
+      ],
+      [
+        "HIDIVE",
+        "https://www.hidive.com/"
+      ],
+      [
+        "Nebula",
+        "https://nebula.tv/"
+      ],
+      [
+        "Dropout",
+        "https://www.dropout.tv/"
+      ],
+      [
+        "Curiosity Stream",
+        "https://curiositystream.com/"
+      ],
+      [
+        "discovery+",
+        "https://www.discoveryplus.com/"
+      ]
+    ]
+  ],
+  [
+    "audio",
+    "Music & audiobooks",
+    [
+      [
+        "Spotify",
+        "https://www.spotify.com/uk/premium/"
+      ],
+      [
+        "Apple Music",
+        "https://www.apple.com/apple-music/"
+      ],
+      [
+        "Amazon Music Unlimited",
+        "https://www.amazon.com/music/unlimited"
+      ],
+      [
+        "YouTube Music",
+        "https://www.youtube.com/musicpremium"
+      ],
+      [
+        "Deezer",
+        "https://www.deezer.com/en/offers"
+      ],
+      [
+        "TIDAL",
+        "https://tidal.com/pricing"
+      ],
+      [
+        "Qobuz",
+        "https://www.qobuz.com/us-en/music/streaming/offers"
+      ],
+      [
+        "Pandora",
+        "https://www.pandora.com/upgrade"
+      ],
+      [
+        "Napster",
+        "https://www.napster.com/"
+      ],
+      [
+        "SoundCloud Go+",
+        "https://checkout.soundcloud.com/go"
+      ],
+      [
+        "Mixcloud Pro",
+        "https://www.mixcloud.com/pro/"
+      ],
+      [
+        "IDAGIO",
+        "https://www.idagio.com/"
+      ],
+      [
+        "Presto Music",
+        "https://www.prestomusic.com/streaming"
+      ],
+      [
+        "nugs.net",
+        "https://www.nugs.net/subscribe/"
+      ],
+      [
+        "LiveOne",
+        "https://www.liveone.com/plus"
+      ],
+      [
+        "Audible",
+        "https://www.audible.com/ep/memberbenefits"
+      ],
+      [
+        "Audiobooks.com",
+        "https://www.audiobooks.com/"
+      ],
+      [
+        "BookBeat",
+        "https://www.bookbeat.com/uk"
+      ],
+      [
+        "Storytel",
+        "https://www.storytel.com/in"
+      ],
+      [
+        "Everand",
+        "https://www.everand.com/"
+      ]
+    ]
+  ],
+  [
+    "gaming",
+    "Games",
+    [
+      [
+        "Xbox Game Pass",
+        "https://www.xbox.com/en-US/xbox-game-pass"
+      ],
+      [
+        "PlayStation Plus",
+        "https://www.playstation.com/en-us/ps-plus/"
+      ],
+      [
+        "Nintendo Switch Online",
+        "https://www.nintendo.com/us/switch/online/"
+      ],
+      [
+        "EA Play",
+        "https://www.ea.com/ea-play"
+      ],
+      [
+        "Ubisoft+",
+        "https://www.ubisoft.com/en-us/ubisoft-plus"
+      ],
+      [
+        "GeForce NOW",
+        "https://www.nvidia.com/en-us/geforce-now/memberships/"
+      ],
+      [
+        "Amazon Luna",
+        "https://luna.amazon.com/"
+      ],
+      [
+        "Apple Arcade",
+        "https://www.apple.com/apple-arcade/"
+      ],
+      [
+        "Google Play Pass",
+        "https://play.google.com/about/play-pass/"
+      ],
+      [
+        "Humble Choice",
+        "https://www.humblebundle.com/membership"
+      ],
+      [
+        "Blacknut",
+        "https://www.blacknut.com/en"
+      ],
+      [
+        "Antstream Arcade",
+        "https://www.antstream.com/"
+      ],
+      [
+        "Boosteroid",
+        "https://boosteroid.com/"
+      ],
+      [
+        "Shadow PC",
+        "https://shadow.tech/"
+      ],
+      [
+        "Final Fantasy XIV",
+        "https://na.finalfantasyxiv.com/product/"
+      ],
+      [
+        "World of Warcraft",
+        "https://us.shop.battle.net/en-us/family/world-of-warcraft"
+      ],
+      [
+        "RuneScape",
+        "https://www.runescape.com/membership"
+      ],
+      [
+        "EVE Online",
+        "https://www.eveonline.com/omega"
+      ],
+      [
+        "The Elder Scrolls Online",
+        "https://www.elderscrollsonline.com/en-us/esoplus"
+      ],
+      [
+        "Star Wars: The Old Republic",
+        "https://www.swtor.com/buy"
+      ]
+    ]
+  ],
+  [
+    "wellness",
+    "Fitness & wellbeing",
+    [
+      [
+        "Peloton App",
+        "https://www.onepeloton.com/app"
+      ],
+      [
+        "Apple Fitness+",
+        "https://www.apple.com/apple-fitness-plus/"
+      ],
+      [
+        "LES MILLS+",
+        "https://www.lesmills.com/us/plus/"
+      ],
+      [
+        "Daily Burn",
+        "https://dailyburn.com/"
+      ],
+      [
+        "Centr",
+        "https://centr.com/join-us"
+      ],
+      [
+        "Fitbod",
+        "https://fitbod.me/"
+      ],
+      [
+        "Freeletics",
+        "https://www.freeletics.com/en/"
+      ],
+      [
+        "FitOn PRO",
+        "https://fitonapp.com/"
+      ],
+      [
+        "Strava",
+        "https://www.strava.com/pricing"
+      ],
+      [
+        "AllTrails",
+        "https://www.alltrails.com/plus"
+      ],
+      [
+        "Komoot Premium",
+        "https://www.komoot.com/premium"
+      ],
+      [
+        "Zwift",
+        "https://www.zwift.com/pricing"
+      ],
+      [
+        "TrainerRoad",
+        "https://www.trainerroad.com/pricing"
+      ],
+      [
+        "Wahoo SYSTM",
+        "https://www.wahoofitness.com/systm"
+      ],
+      [
+        "Headspace",
+        "https://www.headspace.com/subscriptions"
+      ],
+      [
+        "Calm",
+        "https://www.calm.com/freetrial/plans"
+      ],
+      [
+        "Balance",
+        "https://balanceapp.com/"
+      ],
+      [
+        "Insight Timer",
+        "https://insighttimer.com/memberplus"
+      ],
+      [
+        "MyFitnessPal",
+        "https://www.myfitnesspal.com/premium"
+      ],
+      [
+        "Down Dog",
+        "https://www.downdogapp.com/"
+      ]
+    ]
+  ],
+  [
+    "learning",
+    "Learning & languages",
+    [
+      [
+        "Coursera Plus",
+        "https://www.coursera.org/courseraplus"
+      ],
+      [
+        "Skillshare",
+        "https://www.skillshare.com/en/membership"
+      ],
+      [
+        "MasterClass",
+        "https://www.masterclass.com/plans"
+      ],
+      [
+        "LinkedIn Learning",
+        "https://www.linkedin.com/learning/subscription/products"
+      ],
+      [
+        "Udemy Personal Plan",
+        "https://www.udemy.com/personal-plan/"
+      ],
+      [
+        "DataCamp",
+        "https://www.datacamp.com/pricing"
+      ],
+      [
+        "Codecademy",
+        "https://www.codecademy.com/pricing"
+      ],
+      [
+        "Pluralsight",
+        "https://www.pluralsight.com/individuals/pricing"
+      ],
+      [
+        "Brilliant",
+        "https://brilliant.org/premium/"
+      ],
+      [
+        "Super Duolingo",
+        "https://www.duolingo.com/super"
+      ],
+      [
+        "Babbel",
+        "https://www.babbel.com/"
+      ],
+      [
+        "Busuu",
+        "https://www.busuu.com/en/premium"
+      ],
+      [
+        "Memrise",
+        "https://www.memrise.com/"
+      ],
+      [
+        "Lingoda",
+        "https://www.lingoda.com/en/pricing/"
+      ],
+      [
+        "Rosetta Stone",
+        "https://www.rosettastone.com/buy/"
+      ],
+      [
+        "The Great Courses Plus",
+        "https://www.thegreatcoursesplus.com/"
+      ],
+      [
+        "Blinkist",
+        "https://www.blinkist.com/en/nc/plans"
+      ],
+      [
+        "Headway",
+        "https://makeheadway.com/"
+      ],
+      [
+        "Elevate",
+        "https://elevateapp.com/"
+      ],
+      [
+        "Lumosity",
+        "https://www.lumosity.com/en/"
+      ]
+    ]
+  ],
+  [
+    "productivity",
+    "Notes & productivity",
+    [
+      [
+        "Microsoft 365",
+        "https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products"
+      ],
+      [
+        "Google Workspace",
+        "https://workspace.google.com/pricing.html"
+      ],
+      [
+        "Notion",
+        "https://www.notion.com/pricing"
+      ],
+      [
+        "Evernote",
+        "https://evernote.com/compare-plans"
+      ],
+      [
+        "Todoist",
+        "https://www.todoist.com/pricing"
+      ],
+      [
+        "TickTick",
+        "https://ticktick.com/about/upgrade"
+      ],
+      [
+        "Any.do",
+        "https://www.any.do/pricing"
+      ],
+      [
+        "Trello",
+        "https://trello.com/pricing"
+      ],
+      [
+        "Asana",
+        "https://asana.com/pricing"
+      ],
+      [
+        "ClickUp",
+        "https://clickup.com/pricing"
+      ],
+      [
+        "monday.com",
+        "https://monday.com/pricing"
+      ],
+      [
+        "Coda",
+        "https://coda.io/pricing"
+      ],
+      [
+        "Obsidian Sync",
+        "https://obsidian.md/pricing"
+      ],
+      [
+        "Bear",
+        "https://bear.app/faq/how-to-subscribe-to-bear-pro/"
+      ],
+      [
+        "Craft",
+        "https://www.craft.do/pricing"
+      ],
+      [
+        "Notesnook",
+        "https://notesnook.com/pricing/"
+      ],
+      [
+        "Standard Notes",
+        "https://standardnotes.com/plans"
+      ],
+      [
+        "Capacities",
+        "https://capacities.io/pricing"
+      ],
+      [
+        "Reflect",
+        "https://reflect.app/"
+      ],
+      [
+        "Otter.ai",
+        "https://otter.ai/pricing"
+      ]
+    ]
+  ],
+  [
+    "creative",
+    "Design & creation",
+    [
+      [
+        "Adobe Creative Cloud",
+        "https://www.adobe.com/creativecloud/plans.html"
+      ],
+      [
+        "Canva",
+        "https://www.canva.com/pricing/"
+      ],
+      [
+        "Figma",
+        "https://www.figma.com/pricing/"
+      ],
+      [
+        "Sketch",
+        "https://www.sketch.com/pricing/"
+      ],
+      [
+        "Framer",
+        "https://www.framer.com/pricing/"
+      ],
+      [
+        "Webflow",
+        "https://webflow.com/pricing"
+      ],
+      [
+        "Squarespace",
+        "https://www.squarespace.com/pricing"
+      ],
+      [
+        "Wix",
+        "https://www.wix.com/plans"
+      ],
+      [
+        "Carrd",
+        "https://carrd.co/pro"
+      ],
+      [
+        "Descript",
+        "https://www.descript.com/pricing"
+      ],
+      [
+        "VEED",
+        "https://www.veed.io/pricing"
+      ],
+      [
+        "Kapwing",
+        "https://www.kapwing.com/pricing"
+      ],
+      [
+        "Runway",
+        "https://runwayml.com/pricing"
+      ],
+      [
+        "Envato Elements",
+        "https://elements.envato.com/pricing"
+      ],
+      [
+        "Artlist",
+        "https://artlist.io/page/pricing"
+      ],
+      [
+        "Epidemic Sound",
+        "https://www.epidemicsound.com/pricing/"
+      ],
+      [
+        "Splice",
+        "https://splice.com/plans"
+      ],
+      [
+        "Soundtrap",
+        "https://www.soundtrap.com/pricing"
+      ],
+      [
+        "BandLab Membership",
+        "https://www.bandlab.com/membership"
+      ],
+      [
+        "Prezi",
+        "https://prezi.com/pricing/"
+      ]
+    ]
+  ],
+  [
+    "security",
+    "Storage & privacy",
+    [
+      [
+        "Google One",
+        "https://one.google.com/about/plans"
+      ],
+      [
+        "iCloud+",
+        "https://www.apple.com/icloud/"
+      ],
+      [
+        "Dropbox",
+        "https://www.dropbox.com/plans"
+      ],
+      [
+        "OneDrive",
+        "https://www.microsoft.com/en-us/microsoft-365/onedrive/compare-onedrive-plans"
+      ],
+      [
+        "Sync.com",
+        "https://www.sync.com/pricing/"
+      ],
+      [
+        "pCloud",
+        "https://www.pcloud.com/cloud-storage-pricing-plans.html"
+      ],
+      [
+        "MEGA",
+        "https://mega.io/pricing"
+      ],
+      [
+        "IDrive",
+        "https://www.idrive.com/pricing"
+      ],
+      [
+        "Backblaze",
+        "https://www.backblaze.com/cloud-backup/personal"
+      ],
+      [
+        "Proton Drive",
+        "https://proton.me/drive/pricing"
+      ],
+      [
+        "Tresorit",
+        "https://tresorit.com/pricing"
+      ],
+      [
+        "NordVPN",
+        "https://nordvpn.com/pricing/"
+      ],
+      [
+        "ExpressVPN",
+        "https://www.expressvpn.com/order"
+      ],
+      [
+        "Surfshark",
+        "https://surfshark.com/pricing"
+      ],
+      [
+        "CyberGhost",
+        "https://www.cyberghostvpn.com/en_US/buy/cyberghost-vpn-4"
+      ],
+      [
+        "Mullvad",
+        "https://mullvad.net/en/pricing"
+      ],
+      [
+        "Private Internet Access",
+        "https://www.privateinternetaccess.com/buy-vpn-online"
+      ],
+      [
+        "1Password",
+        "https://1password.com/pricing"
+      ],
+      [
+        "Bitwarden",
+        "https://bitwarden.com/pricing/"
+      ],
+      [
+        "Dashlane",
+        "https://www.dashlane.com/pricing"
+      ]
+    ]
+  ],
+  [
+    "reading",
+    "Reading & news",
+    [
+      [
+        "The New York Times",
+        "https://www.nytimes.com/subscription"
+      ],
+      [
+        "The Washington Post",
+        "https://subscribe.washingtonpost.com/"
+      ],
+      [
+        "The Wall Street Journal",
+        "https://store.wsj.com/"
+      ],
+      [
+        "Financial Times",
+        "https://www.ft.com/products"
+      ],
+      [
+        "The Economist",
+        "https://www.economist.com/subscribe"
+      ],
+      [
+        "The Guardian",
+        "https://support.theguardian.com/subscribe"
+      ],
+      [
+        "The Times",
+        "https://www.thetimes.com/subscribe"
+      ],
+      [
+        "The Telegraph",
+        "https://www.telegraph.co.uk/subscriptions/"
+      ],
+      [
+        "The New Yorker",
+        "https://www.newyorker.com/subscribe"
+      ],
+      [
+        "The Atlantic",
+        "https://www.theatlantic.com/subscribe/"
+      ],
+      [
+        "WIRED",
+        "https://www.wired.com/subscribe/"
+      ],
+      [
+        "Bloomberg",
+        "https://www.bloomberg.com/subscriptions"
+      ],
+      [
+        "Business Insider",
+        "https://www.businessinsider.com/subscription"
+      ],
+      [
+        "Medium",
+        "https://medium.com/membership"
+      ],
+      [
+        "Readly",
+        "https://gb.readly.com/"
+      ],
+      [
+        "Kindle Unlimited",
+        "https://www.amazon.com/kindle-dbs/hz/subscribe/ku"
+      ],
+      [
+        "Kobo Plus",
+        "https://www.kobo.com/us/en/plus"
+      ],
+      [
+        "Apple News+",
+        "https://www.apple.com/apple-news/"
+      ],
+      [
+        "Magzter GOLD",
+        "https://www.magzter.com/magztergold"
+      ],
+      [
+        "PressReader",
+        "https://www.pressreader.com/subscribe"
+      ]
+    ]
+  ],
+  [
+    "home",
+    "Food & everyday memberships",
+    [
+      [
+        "Amazon Prime",
+        "https://www.amazon.com/amazonprime"
+      ],
+      [
+        "Walmart+",
+        "https://www.walmart.com/plus"
+      ],
+      [
+        "Costco",
+        "https://www.costco.com/join-costco.html"
+      ],
+      [
+        "Sam's Club",
+        "https://www.samsclub.com/join"
+      ],
+      [
+        "Instacart+",
+        "https://www.instacart.com/instacart-plus"
+      ],
+      [
+        "Shipt",
+        "https://www.shipt.com/membership"
+      ],
+      [
+        "Target Circle 360",
+        "https://www.target.com/circle360"
+      ],
+      [
+        "DoorDash DashPass",
+        "https://www.doordash.com/dashpass"
+      ],
+      [
+        "Uber One",
+        "https://www.uber.com/us/en/u/uber-one/"
+      ],
+      [
+        "Deliveroo Plus",
+        "https://deliveroo.co.uk/plus"
+      ],
+      [
+        "Grubhub+",
+        "https://www.grubhub.com/plus"
+      ],
+      [
+        "HelloFresh",
+        "https://www.hellofresh.com/plans"
+      ],
+      [
+        "Gousto",
+        "https://www.gousto.co.uk/"
+      ],
+      [
+        "Green Chef",
+        "https://www.greenchef.com/plans"
+      ],
+      [
+        "Factor",
+        "https://www.factor75.com/plans"
+      ],
+      [
+        "EveryPlate",
+        "https://www.everyplate.com/plans"
+      ],
+      [
+        "Dinnerly",
+        "https://dinnerly.com/"
+      ],
+      [
+        "Marley Spoon",
+        "https://marleyspoon.com/"
+      ],
+      [
+        "Hungryroot",
+        "https://www.hungryroot.com/"
+      ],
+      [
+        "Home Chef",
+        "https://www.homechef.com/"
+      ]
+    ]
+  ]
+]

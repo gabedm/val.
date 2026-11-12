@@ -1,0 +1,169 @@
+{
+  "version": "0.5",
+  "algorithm": "sha256",
+  "encoding": "utf8",
+  "records": [
+    {
+      "record": {
+        "id": "history_001",
+        "title": "Project scope",
+        "turns": [
+          {
+            "speaker": "Alex",
+            "text": "The first phase includes a written proposal."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          }
+        ]
+      },
+      "canonicalBytes": "{\"id\":\"history_001\",\"title\":\"Project scope\",\"turns\":[{\"speaker\":\"Alex\",\"text\":\"The first phase includes a written proposal.\"},{\"speaker\":\"Jordan\",\"text\":\"Agreed. I will prepare the proposal.\"}]}",
+      "canonicalDigest": "3cbaa50c18acb02f8973247a457057bbf81267b862ecc979c6ae56a2565aea19"
+    },
+    {
+      "record": {
+        "id": "history_002",
+        "title": "Delivery dates",
+        "turns": [
+          {
+            "speaker": "Alex",
+            "text": "The review is scheduled for next week."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "I will share the draft before the review."
+          }
+        ]
+      },
+      "canonicalBytes": "{\"id\":\"history_002\",\"title\":\"Delivery dates\",\"turns\":[{\"speaker\":\"Alex\",\"text\":\"The review is scheduled for next week.\"},{\"speaker\":\"Jordan\",\"text\":\"I will share the draft before the review.\"}]}",
+      "canonicalDigest": "b3a6c828791488a79b42eabf2cd16eb1e2e9f23c2489c2ff05b69b50adb3feee"
+    },
+    {
+      "record": {
+        "id": "history_003",
+        "title": "Final revisions",
+        "turns": [
+          {
+            "speaker": "Alex",
+            "text": "Please revise the second section."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "I will send the revised section tomorrow."
+          }
+        ]
+      },
+      "canonicalBytes": "{\"id\":\"history_003\",\"title\":\"Final revisions\",\"turns\":[{\"speaker\":\"Alex\",\"text\":\"Please revise the second section.\"},{\"speaker\":\"Jordan\",\"text\":\"I will send the revised section tomorrow.\"}]}",
+      "canonicalDigest": "9a5f48cc6a6edad4b59ac30df61b545ee3f47a3cac20a43dc7ba9b6dfc422e51"
+    }
+  ],
+  "normalization": {
+    "input": {
+      "id": "normalization_001",
+      "title": "Café\r\nnotes",
+      "turns": [
+        {
+          "speaker": "José",
+          "text": "First\rSecond\r\nThird"
+        }
+      ]
+    },
+    "canonicalBytes": "{\"id\":\"normalization_001\",\"title\":\"Café\\nnotes\",\"turns\":[{\"speaker\":\"José\",\"text\":\"First\\nSecond\\nThird\"}]}",
+    "canonicalDigest": "05d7f0981cad9645cf24da1100ccb1e8a83649b3670a6218891e3f4816e49254"
+  },
+  "mutations": [
+    {
+      "name": "speaker changed",
+      "record": {
+        "id": "history_001",
+        "title": "Project scope",
+        "turns": [
+          {
+            "speaker": "Taylor",
+            "text": "The first phase includes a written proposal."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          }
+        ]
+      },
+      "canonicalDigest": "3901aad4025f03cb0fad0d4edf0852a9ea49b71d2f35b746c1c323ee3be7481c",
+      "mustMatchSource": false
+    },
+    {
+      "name": "turn order changed",
+      "record": {
+        "id": "history_001",
+        "title": "Project scope",
+        "turns": [
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          },
+          {
+            "speaker": "Alex",
+            "text": "The first phase includes a written proposal."
+          }
+        ]
+      },
+      "canonicalDigest": "cdc2900903bdaf99a56df77783244d752fa6075dcd41643470aee33af07b029d",
+      "mustMatchSource": false
+    },
+    {
+      "name": "title changed",
+      "record": {
+        "id": "history_001",
+        "title": "Different title",
+        "turns": [
+          {
+            "speaker": "Alex",
+            "text": "The first phase includes a written proposal."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          }
+        ]
+      },
+      "canonicalDigest": "ebd850a2038f6a40f0586c6402d67004b487c715043d40c95bf05efd65eaa346",
+      "mustMatchSource": false
+    },
+    {
+      "name": "turn omitted",
+      "record": {
+        "id": "history_001",
+        "title": "Project scope",
+        "turns": [
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          }
+        ]
+      },
+      "canonicalDigest": "a730bb998167eaa20479aaf07d2af687d0c9937a7989b2d5cf26599dad8a2418",
+      "mustMatchSource": false
+    }
+  ],
+  "manifest": {
+    "version": 1,
+    "count": 3,
+    "records": [
+      {
+        "id": "history_001",
+        "canonicalDigest": "3cbaa50c18acb02f8973247a457057bbf81267b862ecc979c6ae56a2565aea19"
+      },
+      {
+        "id": "history_002",
+        "canonicalDigest": "b3a6c828791488a79b42eabf2cd16eb1e2e9f23c2489c2ff05b69b50adb3feee"
+      },
+      {
+        "id": "history_003",
+        "canonicalDigest": "9a5f48cc6a6edad4b59ac30df61b545ee3f47a3cac20a43dc7ba9b6dfc422e51"
+      }
+    ]
+  },
+  "manifestBytes": "{\"version\":1,\"count\":3,\"records\":[{\"id\":\"history_001\",\"canonicalDigest\":\"3cbaa50c18acb02f8973247a457057bbf81267b862ecc979c6ae56a2565aea19\"},{\"id\":\"history_002\",\"canonicalDigest\":\"b3a6c828791488a79b42eabf2cd16eb1e2e9f23c2489c2ff05b69b50adb3feee\"},{\"id\":\"history_003\",\"canonicalDigest\":\"9a5f48cc6a6edad4b59ac30df61b545ee3f47a3cac20a43dc7ba9b6dfc422e51\"}]}",
+  "manifestDigest": "6f84f2104506c86253f08fbed210faed03e32c39b6576a91abe100597f055f1e"
+}

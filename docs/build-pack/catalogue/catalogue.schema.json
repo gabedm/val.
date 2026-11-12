@@ -1,0 +1,429 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Val subscription research catalogue",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "researched_on",
+    "status",
+    "scope",
+    "categories",
+    "services"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "researched_on": {
+      "type": "string",
+      "format": "date"
+    },
+    "status": {
+      "const": "approved_for_read_only_discovery"
+    },
+    "scope": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "array",
+      "minItems": 10,
+      "maxItems": 10,
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "count"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "count": {
+            "const": 20
+          }
+        }
+      }
+    },
+    "services": {
+      "type": "array",
+      "minItems": 200,
+      "items": {
+        "$ref": "#/$defs/service"
+      }
+    }
+  },
+  "$defs": {
+    "source": {
+      "type": "object",
+      "required": [
+        "url",
+        "role",
+        "source_type",
+        "checked_on",
+        "pricing_channel"
+      ],
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "uri",
+          "pattern": "^https://"
+        },
+        "role": {
+          "type": "string"
+        },
+        "source_type": {
+          "enum": [
+            "provider",
+            "official_store",
+            "issuer_announcement"
+          ]
+        },
+        "checked_on": {
+          "type": "string",
+          "format": "date"
+        },
+        "pricing_channel": {
+          "type": "string"
+        }
+      }
+    },
+    "money": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency",
+        "unit"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "currency": {
+          "enum": [
+            "USD",
+            "GBP",
+            "EUR",
+            "SEK"
+          ]
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    },
+    "price": {
+      "type": "object",
+      "required": [
+        "amount",
+        "currency",
+        "unit",
+        "price_market",
+        "market_country",
+        "billing_interval",
+        "billing_amount",
+        "charge_basis",
+        "minimum_seats",
+        "commitment_months",
+        "tax_included",
+        "shipping_additional",
+        "renewal",
+        "kind",
+        "monthly_reference",
+        "monthly_reference_basis",
+        "exact_total_confirmed",
+        "requires_fresh_quote"
+      ],
+      "properties": {
+        "amount": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "currency": {
+          "enum": [
+            "USD",
+            "GBP",
+            "EUR",
+            "SEK"
+          ]
+        },
+        "unit": {
+          "enum": [
+            "month",
+            "year",
+            "28_days",
+            "30_days",
+            "90_days",
+            "27_months",
+            "28_months",
+            "annual_month_rate",
+            "advertised_month",
+            "listed_offer",
+            "serving",
+            "box",
+            "bag"
+          ]
+        },
+        "price_market": {
+          "type": "string"
+        },
+        "market_country": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_interval": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "billing_amount": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "charge_basis": {
+          "type": "string"
+        },
+        "minimum_seats": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "commitment_months": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 1
+        },
+        "tax_included": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "shipping_additional": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/money"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "renewal": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/money"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "kind": {
+          "enum": [
+            "introductory",
+            "advertised_floor",
+            "listed_offer",
+            "provider_typical",
+            "historical_published",
+            "published"
+          ]
+        },
+        "monthly_reference": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "monthly_reference_basis": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exact_total_confirmed": {
+          "const": false
+        },
+        "requires_fresh_quote": {
+          "const": true
+        }
+      }
+    },
+    "service": {
+      "type": "object",
+      "required": [
+        "id",
+        "service",
+        "plan",
+        "category",
+        "comparison_group",
+        "purpose",
+        "audience",
+        "capability_tags",
+        "constraints",
+        "price",
+        "sources",
+        "research_flags",
+        "evidence",
+        "execution"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+        },
+        "service": {
+          "type": "string",
+          "minLength": 1
+        },
+        "plan": {
+          "type": "string",
+          "minLength": 1
+        },
+        "category": {
+          "enum": [
+            "video",
+            "audio",
+            "gaming",
+            "wellness",
+            "learning",
+            "productivity",
+            "creative",
+            "security",
+            "reading",
+            "home"
+          ]
+        },
+        "comparison_group": {
+          "type": "string",
+          "minLength": 1
+        },
+        "purpose": {
+          "type": "string",
+          "minLength": 10
+        },
+        "audience": {
+          "enum": [
+            "consumer_or_individual_prosumer",
+            "business_team",
+            "verified_student"
+          ]
+        },
+        "capability_tags": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": {
+            "type": "string"
+          }
+        },
+        "constraints": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string"
+          }
+        },
+        "price": {
+          "$ref": "#/$defs/price"
+        },
+        "sources": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/source"
+          }
+        },
+        "research_flags": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "code",
+              "detail"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "detail": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "evidence": {
+          "type": "object",
+          "required": [
+            "capability_tags",
+            "runtime_tested",
+            "market_eligibility_confirmed",
+            "history_preservation_confirmed",
+            "plan_entitlements_confirmed"
+          ],
+          "properties": {
+            "capability_tags": {
+              "type": "string"
+            },
+            "runtime_tested": {
+              "const": false
+            },
+            "market_eligibility_confirmed": {
+              "const": false
+            },
+            "history_preservation_confirmed": {
+              "const": false
+            },
+            "plan_entitlements_confirmed": {
+              "const": false
+            }
+          }
+        },
+        "execution": {
+          "type": "object",
+          "required": [
+            "integration_status",
+            "paypal_acceptance",
+            "purchase_supported",
+            "cancellation_supported",
+            "migration_supported",
+            "adapter_required"
+          ],
+          "properties": {
+            "integration_status": {
+              "const": "catalogue_only"
+            },
+            "paypal_acceptance": {
+              "const": "unknown"
+            },
+            "purchase_supported": {
+              "const": false
+            },
+            "cancellation_supported": {
+              "const": false
+            },
+            "migration_supported": {
+              "const": false
+            },
+            "adapter_required": {
+              "const": true
+            }
+          }
+        }
+      }
+    }
+  }
+}

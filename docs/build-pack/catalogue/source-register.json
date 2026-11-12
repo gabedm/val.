@@ -1,0 +1,1609 @@
+{
+  "checked_on": "2026-10-09",
+  "method": "Exa searches and page extraction; visible browser pricing checks where rendering obscured prices. A checked date is not an effective-price guarantee.",
+  "search_results_returned": 367,
+  "category_workstreams": 10,
+  "sources": [
+    {
+      "service_id": "netflix",
+      "url": "https://help.netflix.com/en/node/24926",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "disney",
+      "url": "https://help.disneyplus.com/article/disneyplus-en-us-price",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "hulu",
+      "url": "https://help.hulu.com/article/hulu-how-much-does-hulu-cost",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "hbo-max",
+      "url": "https://www.hbomax.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "paramount",
+      "url": "https://www.paramountplus.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "peacock",
+      "url": "https://www.peacocktv.com/help/help/article/how-much-does-a-peacock-subscription-cost",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "apple-tv",
+      "url": "https://www.apple.com/apple-tv/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "prime-video",
+      "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=G34EUPKVMYFW8N2U",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "now",
+      "url": "https://www.nowtv.com/gb/help/article/entertainment-membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "britbox",
+      "url": "https://www.britbox.com/us/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "acorn-tv",
+      "url": "https://acorn.tv/about/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "shudder",
+      "url": "https://www.shudder.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "mubi",
+      "url": "https://mubi.com/en/us/memberships",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-criterion-channel",
+      "url": "https://www.criterionchannel.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "crunchyroll",
+      "url": "https://www.crunchyroll.com/premium",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "hidive",
+      "url": "https://support.hidive.com/kb/guide/en/how-much-does-hidive-cost-oESaSQwTTx/Steps/4458786",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "nebula",
+      "url": "https://blog.nebula.tv/pricing-updates/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "dropout",
+      "url": "https://www.dropout.tv/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "curiosity-stream",
+      "url": "https://help.curiositystream.com/en/article/e369c4",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "discovery",
+      "url": "https://www.discoveryplus.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "spotify",
+      "url": "https://www.spotify.com/uk/premium/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "apple-music",
+      "url": "https://www.apple.com/apple-music/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "amazon-music-unlimited",
+      "url": "https://www.amazon.com/music/i/faq",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "youtube-music",
+      "url": "https://apps.apple.com/us/app/youtube-music/id1017492454",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "deezer",
+      "url": "https://www.deezer.com/us/offers/premium",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "tidal",
+      "url": "https://tidal.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "qobuz",
+      "url": "https://www.qobuz.com/us-en/music/streaming/offers",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "pandora",
+      "url": "https://help.pandora.com/s/article/Upgrade-to-Pandora-Plus-or-Pandora-Premium-1519949306612?language=en_US",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "libro-fm",
+      "url": "https://libro.fm/membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "soundcloud-go",
+      "url": "https://soundcloud.com/company/plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "pocket-casts",
+      "url": "https://apps.apple.com/us/app/pocket-casts-podcast-player/id414834813",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "idagio",
+      "url": "https://support.idagio.com/en/articles/4667497-subscribing-via-apple",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "presto-music",
+      "url": "https://www.prestomusic.com/streaming",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "nugs-net",
+      "url": "https://help.nugs.net/support/solutions/articles/6000038599-how-much-does-it-cost-",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "liveone",
+      "url": "https://www.globenewswire.com/news-release/2024/09/06/2942130/0/en/LiveOne-Nasdaq-LVO-Launched-Price-Increases-for-Plus-and-Premium-Membership-Plans.html",
+      "role": "published_price_and_service_context",
+      "source_type": "issuer_announcement",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "audible",
+      "url": "https://www.audible.com/plan/selection?productAsin=1496453107",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "audiobooks-com",
+      "url": "https://www.audiobooks.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bookbeat",
+      "url": "https://www.bookbeat.com/uk",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "storytel",
+      "url": "https://www.storytel.com/se",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "everand",
+      "url": "https://support.scribd.com/hc/en-us/articles/40678839226644-Everand-plans-Standard-Plus-and-Deluxe",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "xbox-game-pass",
+      "url": "https://news.xbox.com/en-us/2026/04/21/xbox-game-pass-update/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "playstation-plus",
+      "url": "https://store.playstation.com/en-us/concept/10004507",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "nintendo-switch-online",
+      "url": "https://www.nintendo.com/us/switch/online/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "ea-play",
+      "url": "https://www.ea.com/ea-play",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "ubisoft",
+      "url": "https://store.ubisoft.com/us/select-plan/?lang=en_US",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "gamefly",
+      "url": "https://gamefly.zendesk.com/hc/en-us/articles/360035999433-What-plans-and-pricing-does-GameFly-offer",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "amazon-luna",
+      "url": "https://www.amazongamestudios.com/en-us/news/articles/new-luna-faq",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "apple-arcade",
+      "url": "https://www.apple.com/apple-arcade/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "google-play-pass",
+      "url": "https://blog.google/products-and-platforms/platforms/google-play/google-play-pass-new-apps-games-plans-and-availability/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "humble-choice",
+      "url": "https://www.humblebundle.com/membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "blacknut",
+      "url": "https://www.vizio.com/en/blogs/2026/apr/blacknut-cloud-gaming-free-for-30-days-on-vizio",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "vizio_offer"
+    },
+    {
+      "service_id": "antstream-arcade",
+      "url": "https://www.xbox.com/en-US/games/store/antstream-arcade/9n0bxmrl9x66",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "xbox_store"
+    },
+    {
+      "service_id": "boosteroid",
+      "url": "https://help.boosteroid.com/en/content/what-tariff-plans-do-you-have",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "shadow-pc",
+      "url": "https://shadow.tech/us/shadowpc/offers/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "final-fantasy-xiv",
+      "url": "https://na.finalfantasyxiv.com/product/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "world-of-warcraft",
+      "url": "https://us.shop.battle.net/en-gb/product/world-of-warcraft-subscription",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "runescape",
+      "url": "https://secure.runescape.com/m=news/membership-and-bonds-price-change",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "eve-online",
+      "url": "https://support.eveonline.com/hc/en-us/articles/8404069389724-Subscription-Costs",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-elder-scrolls-online",
+      "url": "https://store.steampowered.com/app/535880/The_Elder_Scrolls_Online_Plus_Membership/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "steam"
+    },
+    {
+      "service_id": "star-wars-the-old-republic",
+      "url": "https://www.swtor.com/buy",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "peloton-app",
+      "url": "https://support.onepeloton.com/s/article/Peloton-Membership-Understanding-Your-App-Membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "apple-fitness",
+      "url": "https://www.apple.com/apple-fitness-plus/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "les-mills",
+      "url": "https://apps.apple.com/us/app/les-mills-home-workout-app/id1483001711",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "daily-burn",
+      "url": "https://apps.apple.com/us/app/daily-burn-home-workouts/id472322122",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "centr",
+      "url": "https://help.centr.com/en-US/understanding-subscription-vs-one-time-charges-3233615",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "fitbod",
+      "url": "https://fitbod.me/faqs/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "glo",
+      "url": "https://support.glo.com/hc/en-us/articles/31979215460763-How-much-does-a-Glo-subscription-cost",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "gaia",
+      "url": "https://gaiasupportcenter.zendesk.com/hc/en-us/articles/28271540036891-How-much-does-my-GAIA-subscription-cost",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "strava",
+      "url": "https://www.strava.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "alltrails",
+      "url": "https://www.alltrails.com/plus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "waking-up",
+      "url": "https://www.wakingup.com/checkout",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "zwift",
+      "url": "https://www.zwift.com/news/33635-how-much-does-zwift-cost-and-whats-included-everything-you-need-to-know",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "trainingpeaks",
+      "url": "https://www.trainingpeaks.com/athlete-pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "wahoo-systm",
+      "url": "https://www.wahoofitness.com/systm",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "headspace",
+      "url": "https://help.headspace.com/hc/en-us/articles/360022693293-What-will-be-the-cost-for-my-subscription-renewal",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "fiit",
+      "url": "https://help.fiit.tv/en/articles/2483541-what-subscription-plans-does-fiit-offer",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "balance",
+      "url": "https://apps.apple.com/us/app/balance-meditation-sleep/id1361356590",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "insight-timer",
+      "url": "https://help.insighttimer.com/support/solutions/articles/67000664579-how-much-does-insight-timer-cost-",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "myfitnesspal",
+      "url": "https://blog.myfitnesspal.com/myfitnesspal-membership-pricing-tiers/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "yoga-international",
+      "url": "https://apps.apple.com/us/app/yoga-international/id1176695165",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "coursera-plus",
+      "url": "https://www.coursera.org/courseraplus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "skillshare",
+      "url": "https://www.skillshare.com/en/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "masterclass",
+      "url": "https://www.masterclass.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "linkedin-learning",
+      "url": "https://apps.apple.com/us/app/linkedin-learning/id1084807225",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "udemy-personal-plan",
+      "url": "https://www.udemy.com/personal-plan/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "datacamp",
+      "url": "https://www.datacamp.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "codecademy",
+      "url": "https://www.codecademy.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "pluralsight",
+      "url": "https://www.pluralsight.com/individuals/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "memrise",
+      "url": "https://apps.apple.com/us/app/memrise-easy-language-learning/id635966718",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "babbel",
+      "url": "https://apps.apple.com/us/app/babbel-language-learning/id829587759",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "rosetta-stone",
+      "url": "https://www.rosettastone.com/buy/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "lingoda",
+      "url": "https://www.lingoda.com/en/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "blinkist",
+      "url": "https://apps.apple.com/us/app/blinkist-book-summaries-daily/id568839295",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "frontend-masters",
+      "url": "https://frontendmasters.com/join/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "treehouse",
+      "url": "https://teamtreehouse.com/subscribe/new",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bunpro",
+      "url": "https://bunpro.jp/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "lingq",
+      "url": "https://www.lingq.com/en/signup/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "o-reilly-learning",
+      "url": "https://learning.oreilly.com/signup/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "wanikani",
+      "url": "https://knowledge.wanikani.com/account-and-membership/payment-and-billing/subscription-plans/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "mango-languages",
+      "url": "https://www.mangolanguages.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "microsoft-365",
+      "url": "https://www.microsoft.com/en-us/microsoft-365/buy/compare-all-microsoft-365-products",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "google-workspace",
+      "url": "https://knowledge.workspace.google.com/admin/billing/compare-flexible-and-annual-fixed-term-payment-plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "notion",
+      "url": "https://www.notion.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "evernote",
+      "url": "https://help.evernote.com/hc/en-us/articles/46317642175763-Discontinuing-Evernote-Personal-Professional-Introducing-Starter-Advanced-FAQ",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "todoist",
+      "url": "https://www.todoist.com/help/account-and-billing/plans/todoist-plans-pricing-and-billing-faq-Vq2z0HWL6",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "ticktick",
+      "url": "https://ticktick.com/about/upgrade",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "any-do",
+      "url": "https://www.any.do/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "trello",
+      "url": "https://trello.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "asana",
+      "url": "https://asana.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "clickup",
+      "url": "https://clickup.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "monday-com",
+      "url": "https://monday.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "coda",
+      "url": "https://coda.io/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "obsidian-sync",
+      "url": "https://obsidian.md/blog/standard-plan/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bear",
+      "url": "https://bear.app/faq/features-and-price-of-bear-pro/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "craft",
+      "url": "https://www.craft.do/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "notesnook",
+      "url": "https://notesnook.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "standard-notes",
+      "url": "https://standardnotes.com/plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "capacities",
+      "url": "https://capacities.io/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "amplenote",
+      "url": "https://www.amplenote.com/subscriptions/new",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "otter-ai",
+      "url": "https://otter.ai/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "adobe-creative-cloud",
+      "url": "https://www.adobe.com/creativecloud/plans.html",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "canva",
+      "url": "https://www.canva.com/pricing/?tab=main",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "figma",
+      "url": "https://www.figma.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "sketch",
+      "url": "https://www.sketch.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "framer",
+      "url": "https://www.framer.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "webflow",
+      "url": "https://help.webflow.com/hc/en-us/articles/51059955082387-Updated-pricing-and-simplified-plans-for-May-2026",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "squarespace",
+      "url": "https://www.squarespace.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "wix",
+      "url": "https://www.wix.com/blog/wix-premium-plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "carrd",
+      "url": "https://carrd.co/docs/pro/plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "descript",
+      "url": "https://www.descript.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "kapwing",
+      "url": "https://www.kapwing.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "runway",
+      "url": "https://runwayml.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "envato",
+      "url": "https://elements.envato.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "midjourney",
+      "url": "https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "leonardo-ai",
+      "url": "https://leonardo.ai/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "luma-dream-machine",
+      "url": "https://lumalabs.ai/dream-machine/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "splice",
+      "url": "https://splice.com/plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bandlab",
+      "url": "https://help.bandlab.com/hc/en-us/articles/20758981227033-BandLab-Membership-FAQ",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "prezi",
+      "url": "https://prezi.com/blog/ai-presentation-maker-pricing-comparison-2026/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "beautiful-ai",
+      "url": "https://www.beautiful.ai/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "google-one",
+      "url": "https://one.google.com/about/plans",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "icloud",
+      "url": "https://www.apple.com/icloud/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "dropbox",
+      "url": "https://apps.apple.com/us/app/dropbox-cloud-storage-backup/id327630330",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "proton-mail",
+      "url": "https://proton.me/mail/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "sync-com",
+      "url": "https://www.sync.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "pcloud",
+      "url": "https://apps.apple.com/us/app/pcloud-cloud-storage/id692002098",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "mega",
+      "url": "https://mega.io/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "idrive",
+      "url": "https://www.idrive.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "backblaze",
+      "url": "https://www.backblaze.com/cloud-backup/personal",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "proton-drive",
+      "url": "https://proton.me/drive/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "enpass",
+      "url": "https://www.enpass.io/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "nordvpn",
+      "url": "https://nordvpn.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "expressvpn",
+      "url": "https://www.expressvpn.com/order",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "surfshark",
+      "url": "https://surfshark.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "cyberghost",
+      "url": "https://www.cyberghostvpn.com/buy",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "mullvad",
+      "url": "https://mullvad.net/en/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "private-internet-access",
+      "url": "https://www.privateinternetaccess.com/buy-vpn-online",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "1password",
+      "url": "https://1password.com/pricing/personal",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bitwarden",
+      "url": "https://bitwarden.com/pricing/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "dashlane",
+      "url": "https://www.dashlane.com/pricing",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-new-york-times",
+      "url": "https://apps.apple.com/us/app/the-new-york-times/id284862083",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "the-washington-post",
+      "url": "https://subscribe.washingtonpost.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-wall-street-journal",
+      "url": "https://store.wsj.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "financial-times",
+      "url": "https://www.ft.com/products",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-economist",
+      "url": "https://www.economist.com/subscribe",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-guardian",
+      "url": "https://support.theguardian.com/uk/subscribe",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-times",
+      "url": "https://apps.apple.com/gb/app/the-times-uk-world-news/id436792321",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "new-statesman",
+      "url": "https://apps.apple.com/gb/app/new-statesman-magazine/id610498525",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "the-new-yorker",
+      "url": "https://www.newyorker.com/subscribe",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "the-bulwark",
+      "url": "https://help.thebulwark.com/what-are-the-benefits-for-a-bulwark-members",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "wired",
+      "url": "https://www.wired.com/subscribe/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "bloomberg",
+      "url": "https://www.bloomberg.com/subscriptions",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "business-insider",
+      "url": "https://apps.apple.com/us/app/business-insider/id554260576",
+      "role": "published_price_and_service_context",
+      "source_type": "official_store",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "apple_app_store"
+    },
+    {
+      "service_id": "medium",
+      "url": "https://medium.com/membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "readly",
+      "url": "https://support.readly.co/hc/en-gb/articles/45712964781841-Which-subscriptions-does-Readly-offer",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "kindle-unlimited",
+      "url": "https://www.amazon.com/gp/help/customer/display.html?nodeId=TFtdZHzxNayxBGVntF",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "kobo-plus",
+      "url": "https://www.kobo.com/us/en/plus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "apple-news",
+      "url": "https://www.apple.com/apple-news/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "magzter",
+      "url": "https://www.magzter.com/magztergold",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "pressreader",
+      "url": "https://www.pressreader.com/subscribe",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "amazon-prime",
+      "url": "https://www.amazon.com/amazonprime",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "walmart",
+      "url": "https://corporate.walmart.com/news/2020/09/15/walmart-is-here",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "costco",
+      "url": "https://customerservice.costco.com/app/answers/detail/a_id/857/kw/gold%20star%20membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "sam-s-club",
+      "url": "https://www.samsclub.com/join",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "instacart",
+      "url": "https://www.instacart.com/instacart-plus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "shipt",
+      "url": "https://www.shipt.com/membership",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "target-circle-360",
+      "url": "https://www.target.com/help/articles/target-circle/about-target-circle-360",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "dashpass",
+      "url": "https://help.doordash.com/en-us/consumers/article/what-is-dashpass",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "uber-one",
+      "url": "https://www.uber.com/us/en/u/uber-one/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "deliveroo-plus",
+      "url": "https://deliveroo.co.uk/plus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "grubhub",
+      "url": "https://www.grubhub.com/plus",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "gousto",
+      "url": "https://www.gousto.co.uk/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "everyplate",
+      "url": "https://www.everyplate.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "dinnerly",
+      "url": "https://dinnerly.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "home-chef",
+      "url": "https://www.homechef.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "simplycook",
+      "url": "https://www.simplycook.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "butcherbox",
+      "url": "https://subscribe.butcherbox.com/home-3",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "barkbox",
+      "url": "https://bark.co/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "kitnipbox",
+      "url": "https://www.kitnipbox.com/",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    },
+    {
+      "service_id": "trade-coffee",
+      "url": "https://trade-coffee.gorgias.help/en-US/trades-subscription-tiers-401627",
+      "role": "published_price_and_service_context",
+      "source_type": "provider",
+      "checked_on": "2026-10-09",
+      "pricing_channel": "provider_published_offer"
+    }
+  ],
+  "rules_source": "https://paypalaihackathon.devpost.com/rules"
+}

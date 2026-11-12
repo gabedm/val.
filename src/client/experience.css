@@ -1,0 +1,922 @@
+/* Shared presentation layer. Billing, conversation state and navigation stay in their components. */
+:root {
+  --font-family: "Segoe UI Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Arimo, sans-serif;
+  --ink: #000;
+  --muted: #333;
+  --canvas: #f6f7f9;
+  --surface: #ffffff;
+  --surface-secondary: #f0f2f5;
+  --accent-surface: #e8f3fe;
+  --accent-blue: #d8ebfc;
+  --brand-blue: #91bfe3;
+  --selection: #a9d5f7;
+  --line: #e2e5ea;
+  --radius: 22px;
+  --page-title: clamp(28px, 3.2vw, 36px);
+  --button-font: 600 15px/1.3 var(--font-family);
+  --shadow-dock: 0 8px 32px #152c4512, 0 1px 4px #152c4508;
+  --motion-enter: 320ms;
+  --ease-settle: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --chat-dock-clearance: 104px;
+  color: var(--ink);
+  font-weight: 500;
+  background: var(--canvas);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: inherit;
+}
+button,
+input,
+textarea,
+select {
+  color: var(--ink);
+}
+button:disabled {
+  opacity: 0.5;
+}
+h1,
+h2,
+h3 {
+  font-weight: 650;
+  text-wrap: balance;
+}
+h1 {
+  letter-spacing: -0.045em;
+}
+p {
+  line-height: 1.6;
+}
+.shell {
+  width: 100%;
+  max-width: none;
+  padding-inline: clamp(20px, 3vw, 64px);
+}
+.page.narrow {
+  max-width: none;
+}
+.masthead {
+  height: 72px;
+  justify-content: space-between;
+  gap: 20px;
+}
+.wordmark,
+.entry-wordmark,
+.session-arrival-mark,
+.portfolio-scene-wordmark {
+  font-family: Arimo, Arial, sans-serif;
+}
+.wordmark {
+  font-size: 34px;
+  min-height: 44px;
+}
+.page.has-nav {
+  padding-bottom: 124px;
+}
+.page.narrow.account-page,
+.account-activity.dashboard-page,
+.dashboard-page,
+.logo-catalogue {
+  max-width: none;
+  margin: 8px auto 0;
+}
+.dashboard-heading {
+  margin-bottom: 28px;
+  gap: 16px;
+}
+.dashboard-heading .text-button {
+  font-weight: 500;
+  white-space: nowrap;
+}
+.text-button {
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+.button,
+.entry-primary,
+.entry-provider {
+  min-height: 50px;
+  border-radius: 15px;
+  font: var(--button-font);
+}
+.button.light {
+  background: var(--surface-secondary);
+}
+.button:not(.light) {
+  background: var(--selection);
+  color: var(--ink);
+}
+.text-input,
+.money-input {
+  border-radius: 14px;
+}
+.note {
+  line-height: 1.6;
+}
+
+/* One navigation treatment at every size; the selected section remains blue with black labels. */
+.footer-nav {
+  width: min(540px, calc(100% - 32px));
+  height: 68px;
+  padding: 6px;
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  background: #fffffff2;
+  backdrop-filter: blur(20px);
+  box-shadow: var(--shadow-dock);
+  bottom: max(18px, env(safe-area-inset-bottom));
+}
+.nav-item {
+  border-radius: 20px;
+  font-size: 13px;
+  gap: 8px;
+  color: #000;
+}
+.nav-item svg {
+  width: 21px;
+  height: 21px;
+  stroke-width: 1.65;
+}
+.footer-nav::before {
+  border-radius: 20px;
+  background: var(--selection);
+}
+.nav-item.active {
+  font-weight: 600;
+}
+.nav-item:focus-visible {
+  outline-offset: -3px;
+}
+
+/* Bills are a financial summary followed by one aligned list, with their original evidence intact. */
+.portfolio-total {
+  padding: 28px 32px;
+  margin: 0 0 28px;
+  border-radius: var(--radius);
+  background: var(--accent-surface);
+  border: 1px solid var(--accent-blue);
+}
+.portfolio-total > span {
+  font-size: 13px;
+  font-weight: 500;
+}
+.portfolio-total > strong {
+  margin: 8px 0 14px;
+  font-size: clamp(42px, 5.2vw, 62px);
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+.portfolio-total small {
+  display: inline-block;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.portfolio-total p {
+  max-width: 600px;
+  font-size: 12px;
+}
+.portfolio-list {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+  overflow: hidden;
+}
+.portfolio-list:empty {
+  display: none;
+}
+.portfolio-row {
+  padding: 22px 24px;
+  gap: 16px;
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-row:last-child {
+  border-bottom: 0;
+}
+.portfolio-row:focus-visible {
+  outline-offset: -4px;
+}
+.portfolio-row-copy {
+  gap: 4px;
+}
+.portfolio-row-copy strong {
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.portfolio-row-copy small {
+  font-size: 12px;
+  line-height: 1.55;
+}
+.portfolio-row-price {
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-mark {
+  width: 46px;
+  height: 46px;
+}
+.portfolio-row-price svg {
+  width: 16px;
+  height: 16px;
+  color: var(--ink);
+}
+
+/* The account summary uses equal numeric hierarchy rather than a second branded hero. */
+.account-page > h1,
+.account-activity > h1 {
+  margin-bottom: 28px;
+}
+.account-card {
+  border-radius: var(--radius);
+  box-shadow: none;
+  margin-bottom: 30px;
+}
+.account-card > header {
+  padding: 22px 26px 0;
+  background: var(--surface);
+}
+.account-card h2 {
+  font-size: 18px;
+  letter-spacing: -0.025em;
+}
+.account-avatar {
+  width: 38px;
+  height: 38px;
+  border-radius: 13px;
+  background: var(--accent-surface);
+}
+.account-avatar svg {
+  width: 21px;
+  height: 21px;
+}
+.account-needs {
+  padding: 22px 26px 26px;
+  gap: 24px;
+}
+.account-needs strong,
+.account-needs > div:first-child strong {
+  font-size: 38px;
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-variant-numeric: tabular-nums;
+  margin: 8px 0;
+}
+.account-needs > div + div {
+  padding-left: 24px;
+}
+.account-needs span,
+.account-needs small {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.settings-section {
+  margin: 28px 0;
+}
+.settings-section > h2,
+.activity-section > h2 {
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+.settings-group {
+  border-radius: 18px;
+}
+.settings-row,
+.settings-disclosure > summary {
+  min-height: 78px;
+  padding: 18px 22px;
+  gap: 14px;
+}
+.settings-icon {
+  color: var(--ink);
+  width: 28px;
+  height: 28px;
+}
+.settings-icon svg {
+  width: 22px;
+  height: 22px;
+}
+.settings-copy {
+  gap: 3px;
+}
+.settings-copy strong {
+  font-size: 14px;
+  font-weight: 600;
+}
+.settings-copy small {
+  font-size: 12px;
+}
+.settings-row > svg,
+.settings-disclosure > summary > svg {
+  color: var(--ink);
+  width: 16px;
+  height: 16px;
+}
+.settings-expanded {
+  padding: 0 22px 22px 64px;
+}
+
+/* The artwork belongs to ingestion. Once the conversation starts, give that space back to the replies. */
+html:has(.route-view:not([hidden]) .portfolio-chat) {
+  background: var(--surface);
+}
+.shell:has(.route-view:not([hidden]) .portfolio-chat) {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  overflow: hidden;
+}
+.shell:has(.route-view:not([hidden]) .portfolio-chat) .masthead {
+  flex: none;
+  height: 64px;
+}
+.shell:has(.portfolio-chat) > .route-view:not([hidden]) {
+  flex: 1;
+  min-height: 0;
+}
+.page.narrow.portfolio-chat {
+  max-width: none;
+  height: 100%;
+  min-height: 0;
+  gap: 12px;
+  padding: 8px 0 var(--chat-dock-clearance);
+}
+.genie-chat .portfolio-chat-heading {
+  min-height: 32px;
+  padding: 0 4px;
+}
+.portfolio-saved {
+  font-size: 12px;
+  min-height: 36px;
+  color: #000;
+}
+.genie-chat.has-conversation .portfolio-opening {
+  height: 0;
+  opacity: 0;
+  overflow: hidden;
+  pointer-events: none;
+  transition:
+    height 620ms var(--ease-settle),
+    opacity 220ms ease;
+}
+.genie-chat.has-conversation .portfolio-scene {
+  --scene-width: 170px;
+  --scene-height: 58px;
+}
+.genie-chat.has-conversation .portfolio-scene-wordmark {
+  font-size: 32px;
+  letter-spacing: -2px;
+}
+.genie-chat.has-conversation .portfolio-orbit,
+.genie-chat.has-conversation .portfolio-mark {
+  width: 22px;
+  height: 22px;
+}
+.portfolio-conversation {
+  min-height: 0;
+  padding: 8px 6px 18px;
+  scroll-padding: 18px;
+}
+.portfolio-conversation .chat-message {
+  margin-bottom: 22px;
+}
+.genie-chat .portfolio-conversation .from-val {
+  max-width: min(90%, 84ch);
+  padding: 15px 18px;
+  border-radius: 20px 20px 20px 6px;
+  background: var(--accent-surface);
+}
+.genie-chat .portfolio-conversation .from-you {
+  max-width: min(82%, 76ch);
+  background: var(--surface-secondary);
+  padding: 13px 18px;
+  border-radius: 20px 20px 6px 20px;
+}
+.genie-chat .portfolio-conversation .chat-message p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.portfolio-chat .chat-composer {
+  min-height: 62px;
+  border-radius: 22px;
+  border-color: var(--line);
+  background: var(--surface-secondary);
+  padding: 10px 11px 10px 18px;
+  gap: 12px;
+}
+.portfolio-chat .chat-composer:focus-within {
+  background: var(--surface);
+  border-color: var(--brand-blue);
+}
+.portfolio-chat .chat-send {
+  width: 40px;
+  height: 40px;
+}
+.chat-send:disabled {
+  color: var(--muted);
+  background: var(--line);
+}
+.portfolio-confirm {
+  border-radius: 20px;
+  padding: 22px;
+  background: var(--accent-surface);
+  border-color: var(--accent-blue);
+}
+.portfolio-confirm-heading h2 {
+  font-size: 18px;
+}
+.portfolio-confirm > p {
+  font-size: 15px;
+}
+.portfolio-confirm-actions {
+  flex-wrap: wrap;
+  gap: 10px 20px;
+}
+.portfolio-confirm-actions .button {
+  border-radius: 13px;
+  font-weight: 600;
+}
+.val-quick-replies button {
+  border: 0;
+  border-radius: 13px;
+  background: var(--selection);
+  font-size: 13px;
+  font-weight: 500;
+}
+.val-research-label {
+  color: var(--muted);
+  font-size: 13px;
+}
+.portfolio-work {
+  flex: none;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px 16px;
+  border-radius: 14px;
+  background: var(--accent-surface);
+  font-size: 13px;
+}
+.portfolio-work .chat-dots {
+  flex: none;
+  margin: 0;
+}
+.portfolio-work-copy {
+  flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.portfolio-work-copy small {
+  display: block;
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 2px;
+}
+.portfolio-work progress {
+  flex: 0 1 96px;
+  width: 96px;
+  height: 4px;
+  border: 0;
+  border-radius: 4px;
+  overflow: hidden;
+  appearance: none;
+  background: var(--line);
+  accent-color: var(--ink);
+}
+.portfolio-work progress::-webkit-progress-bar {
+  background: var(--line);
+}
+.portfolio-work progress::-webkit-progress-value {
+  background: var(--ink);
+}
+.portfolio-work progress::-moz-progress-bar {
+  background: var(--ink);
+}
+
+/* The review is a section, not a card containing more cards. Each offer has one clear price. */
+.portfolio-advice {
+  padding: 0;
+  margin: 22px 0 30px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
+.portfolio-review-result > h2 {
+  margin: 26px 0 12px;
+  font-size: 21px;
+  letter-spacing: -0.035em;
+}
+.portfolio-advice > p {
+  font-size: 15px;
+  line-height: 1.65;
+}
+.portfolio-advice > .note {
+  font-size: 12px;
+}
+.portfolio-value-option {
+  padding: 24px;
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+.portfolio-value-heading {
+  display: grid;
+  grid-template-columns: 44px minmax(0, 1fr) auto;
+  gap: 12px;
+  align-items: center;
+}
+.portfolio-value-heading > span:not(.portfolio-mark) > strong {
+  font-size: 16px;
+  font-weight: 600;
+}
+.portfolio-value-heading small {
+  font-size: 12px;
+  line-height: 1.5;
+}
+.portfolio-value-price {
+  font-size: 23px;
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-value-price small {
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.portfolio-value-option > p {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.portfolio-value-option > .note {
+  font-size: 12px;
+  margin-top: 8px;
+}
+.portfolio-value-option .portfolio-value-saving {
+  padding: 12px 14px;
+  border-radius: 12px;
+  background: var(--accent-surface);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+}
+.portfolio-fit-note {
+  border-left: 2px solid var(--brand-blue);
+  background: var(--canvas);
+  border-radius: 0 10px 10px 0;
+}
+.portfolio-value-option details {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.portfolio-value-option summary {
+  min-height: 44px;
+  display: list-item;
+  padding: 12px 0;
+  color: var(--ink);
+  font-size: 13px;
+}
+.portfolio-value-option details p {
+  margin: 10px 0;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.portfolio-value-option details a {
+  min-height: 44px;
+  color: var(--ink);
+  font-size: 12px;
+}
+.portfolio-search-again {
+  gap: 14px;
+  align-items: baseline;
+}
+.portfolio-search-again .note {
+  font-size: 11px;
+}
+.portfolio-search-again .text-button {
+  font-size: 12px;
+}
+
+.logo-catalogue > h1 {
+  margin-bottom: 28px;
+}
+.subscription-searchbar {
+  min-height: 56px;
+  border-radius: 17px;
+  box-shadow: none;
+  padding: 4px 14px 4px 18px;
+}
+.subscription-search {
+  font-size: 15px;
+}
+.subscription-logo-grid {
+  margin-top: 32px;
+  gap: 28px 20px;
+}
+.subscription-logo-button {
+  border-radius: 18px;
+  gap: 12px;
+}
+.subscription-logo-button .brand-mark {
+  width: 74px;
+  height: 74px;
+  box-shadow: none;
+}
+.subscription-logo-name {
+  font-size: 12px;
+  font-weight: 500;
+}
+.service-detail .detail-identity {
+  border-radius: var(--radius);
+}
+.dialog,
+.entry-dialog {
+  border-radius: 24px;
+}
+.entry h1 {
+  font-weight: 600;
+  letter-spacing: -0.06em;
+}
+.entry h1 span::after {
+  display: none;
+}
+.entry-provider-paypal {
+  border-radius: 16px;
+}
+.entry-actions {
+  margin-top: 32px;
+}
+.entry-actions > .note {
+  margin-bottom: 14px;
+}
+
+@media (hover: hover) {
+  .portfolio-row:hover,
+  .settings-row:hover:not(:disabled),
+  .settings-disclosure > summary:hover {
+    background: var(--canvas);
+  }
+  .nav-item:not(.active):hover {
+    background: var(--surface-secondary);
+  }
+  .subscription-logo-button:hover {
+    background: var(--surface);
+  }
+  .subscription-logo-button:hover .brand-mark {
+    transform: none;
+    box-shadow: none;
+  }
+}
+@media (max-width: 600px) {
+  .shell {
+    padding-inline: 20px;
+  }
+  .masthead {
+    height: 76px;
+  }
+  .dashboard-heading {
+    align-items: flex-start;
+    margin-bottom: 22px;
+  }
+  .dashboard-heading .text-button {
+    font-size: 12px;
+  }
+  .portfolio-total {
+    padding: 22px;
+    margin-bottom: 22px;
+  }
+  .portfolio-total > strong {
+    font-size: 44px;
+  }
+  .portfolio-total small {
+    font-size: 12px;
+    margin-left: 6px;
+  }
+  .portfolio-row {
+    display: grid;
+    grid-template-columns: 40px minmax(0, 1fr);
+    padding: 18px;
+    gap: 4px 12px;
+  }
+  .portfolio-row .portfolio-mark {
+    width: 40px;
+    height: 40px;
+    align-self: start;
+    grid-row: span 2;
+  }
+  .portfolio-row-copy strong {
+    font-size: 15px;
+  }
+  .portfolio-row-price {
+    grid-column: 2;
+    justify-content: space-between;
+    font-size: 13px;
+    padding-top: 6px;
+  }
+  .portfolio-row-copy small {
+    font-size: 12px;
+  }
+  .account-card > header {
+    padding: 20px 20px 0;
+  }
+  .account-needs {
+    padding: 20px;
+    gap: 16px;
+  }
+  .account-needs > div + div {
+    padding-left: 16px;
+  }
+  .account-needs strong,
+  .account-needs > div:first-child strong {
+    font-size: 34px;
+  }
+  .account-needs small {
+    font-size: 11px;
+  }
+  .settings-row,
+  .settings-disclosure > summary {
+    padding: 17px 18px;
+    gap: 12px;
+  }
+  .footer-nav {
+    height: 68px;
+    border-radius: 25px;
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+  .nav-item {
+    flex-direction: column;
+    gap: 4px;
+    font-size: 10px;
+  }
+  .nav-item svg {
+    width: 21px;
+    height: 21px;
+  }
+  .shell:has(.route-view:not([hidden]) .portfolio-chat) {
+    padding-inline: 16px;
+  }
+  .shell:has(.route-view:not([hidden]) .portfolio-chat) .masthead {
+    height: 56px;
+  }
+  .page.narrow.portfolio-chat {
+    --chat-dock-clearance: max(96px, calc(84px + env(safe-area-inset-bottom)));
+    gap: 8px;
+  }
+  .genie-chat.has-conversation .portfolio-opening {
+    height: 0;
+  }
+  .genie-chat.has-conversation .portfolio-scene {
+    --scene-width: 150px;
+    --scene-height: 44px;
+  }
+  .genie-chat.has-conversation .portfolio-scene-wordmark {
+    font-size: 27px;
+  }
+  .genie-chat.has-conversation .portfolio-orbit,
+  .genie-chat.has-conversation .portfolio-mark {
+    width: 18px;
+    height: 18px;
+  }
+  .genie-chat .portfolio-conversation .from-val {
+    max-width: 94%;
+    padding: 13px 16px;
+  }
+  .genie-chat .portfolio-conversation .chat-message p {
+    font-size: 15px;
+  }
+  .portfolio-confirm {
+    padding: 18px;
+  }
+  .portfolio-value-option {
+    padding: 18px;
+  }
+  .portfolio-value-heading {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 10px;
+  }
+  .genie-chat .portfolio-value-heading .portfolio-mark {
+    width: 36px;
+    height: 36px;
+  }
+  .portfolio-value-price {
+    grid-column: 2;
+    text-align: left;
+    margin-top: 4px;
+    font-size: 24px;
+  }
+  .portfolio-value-price small {
+    display: inline;
+    margin-left: 5px;
+  }
+  .portfolio-value-price .portfolio-value-price-label {
+    display: block;
+    margin: 0 0 4px;
+  }
+  .portfolio-search-again {
+    flex-wrap: wrap;
+    gap: 0 14px;
+  }
+  .subscription-logo-grid {
+    gap: 24px 12px;
+  }
+  .subscription-logo-button .brand-mark {
+    width: 64px;
+    height: 64px;
+  }
+  .subscription-logo-button .brand-logo {
+    width: 42px;
+    height: 42px;
+  }
+}
+@media (max-width: 360px) {
+  .shell {
+    padding-inline: 16px;
+  }
+  .dashboard-heading {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .portfolio-total {
+    padding: 20px;
+  }
+  .portfolio-total > strong {
+    font-size: 40px;
+  }
+  .portfolio-total small {
+    display: block;
+    margin: 6px 0 0;
+  }
+  .portfolio-row {
+    padding: 16px;
+  }
+  .footer-nav {
+    width: calc(100% - 20px);
+  }
+  .nav-item {
+    font-size: 9px;
+  }
+  .subscription-logo-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .footer-nav::before {
+    transition: transform 360ms var(--ease-settle);
+  }
+  .portfolio-row,
+  .settings-row,
+  .nav-item {
+    transition: background-color 180ms ease;
+  }
+  .route-view:not(.initial-route):not(:has(.portfolio-chat)) {
+    animation: experience-arrive 280ms var(--ease-settle) both;
+  }
+  .portfolio-confirm,
+  .portfolio-review-result {
+    animation: experience-arrive 380ms var(--ease-settle) both;
+  }
+  .portfolio-chat .chat-composer {
+    transition:
+      background-color 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+  .genie-chat.has-conversation .portfolio-scene,
+  .genie-chat.has-conversation .portfolio-orbit {
+    animation-play-state: paused;
+  }
+  .portfolio-row:active,
+  .settings-row:active,
+  .portfolio-chat button:active:not(:disabled) {
+    transform: none;
+  }
+}
+@keyframes experience-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

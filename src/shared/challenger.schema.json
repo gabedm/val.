@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:val:challenger:0.6",
+  "$defs": {
+    "PlanBehavior": {
+      "type": "object",
+      "properties": {
+        "marketingText": {
+          "type": "string",
+          "maxLength": 2000
+        },
+        "editableText": {
+          "type": "boolean"
+        },
+        "speakerLabels": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "marketingText",
+        "editableText",
+        "speakerLabels"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "object",
+  "properties": {
+    "version": {
+      "type": "integer",
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "purpose": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "requiredCapabilities": {
+      "type": "array",
+      "maxItems": 2,
+      "items": {
+        "type": "string",
+        "enum": [
+          "editable_text",
+          "speaker_labels"
+        ]
+      }
+    },
+    "replacementCeilingMinor": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 2500
+    },
+    "preserveHistory": {
+      "type": "boolean",
+      "enum": [
+        true
+      ]
+    },
+    "unsupportedRequirements": {
+      "type": "array",
+      "maxItems": 4,
+      "items": {
+        "type": "string",
+        "maxLength": 300
+      }
+    },
+    "notice": {
+      "type": "string",
+      "maxLength": 2000
+    },
+    "valueCase": {
+      "type": "object",
+      "properties": { "scenario": { "const": "value_offer" } },
+      "required": ["scenario"],
+      "additionalProperties": false
+    },
+    "plans": {
+      "type": "object",
+      "properties": {
+        "a_01": {
+          "$ref": "#/$defs/PlanBehavior"
+        },
+        "a_02": {
+          "$ref": "#/$defs/PlanBehavior"
+        },
+        "b_01": {
+          "$ref": "#/$defs/PlanBehavior"
+        },
+        "b_02": {
+          "$ref": "#/$defs/PlanBehavior"
+        },
+        "b_03": {
+          "$ref": "#/$defs/PlanBehavior"
+        }
+      },
+      "required": [
+        "a_01",
+        "a_02",
+        "b_01",
+        "b_02"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "version",
+    "purpose",
+    "requiredCapabilities",
+    "replacementCeilingMinor",
+    "preserveHistory",
+    "unsupportedRequirements",
+    "notice",
+    "plans"
+  ],
+  "allOf": [
+    { "if": { "properties": { "version": { "const": 1 } }, "required": ["version"] },
+      "then": { "properties": { "valueCase": false, "plans": { "type": "object", "properties": { "b_03": false } } } } },
+    { "if": { "properties": { "version": { "const": 2 } }, "required": ["version"] },
+      "then": { "properties": { "valueCase": { "type": "object" }, "plans": { "type": "object", "properties": { "b_03": { "$ref": "#/$defs/PlanBehavior" } }, "required": ["b_03"] } }, "required": ["valueCase"] } }
+  ],
+  "additionalProperties": false
+}

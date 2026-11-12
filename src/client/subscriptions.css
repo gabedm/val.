@@ -1,0 +1,1272 @@
+.portfolio-dashboard,
+.portfolio-chat {
+  width: 100%;
+}
+.portfolio-total {
+  padding: 24px 0 36px;
+}
+.portfolio-total > span {
+  font-size: 14px;
+  color: var(--muted);
+}
+.portfolio-total > strong {
+  display: block;
+  font-size: clamp(48px, 7vw, 72px);
+  letter-spacing: -3px;
+  line-height: 1.2;
+  margin: 10px 0;
+}
+.portfolio-total small {
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-left: 12px;
+  color: var(--muted);
+}
+.portfolio-total p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+.portfolio-list {
+  border-top: 1px solid var(--line);
+}
+.portfolio-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 26px 4px;
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+  text-align: left;
+  transition: background 180ms ease;
+}
+.portfolio-row:hover {
+  background: #edf6fc;
+}
+.portfolio-mark {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 27px;
+  font-weight: 700;
+  overflow: hidden;
+}
+.portfolio-mark img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+.portfolio-row-copy {
+  display: grid;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+}
+.portfolio-row-copy strong {
+  font-size: 19px;
+}
+.portfolio-row-copy small {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.5;
+}
+.portfolio-row-price {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.portfolio-row-price svg {
+  width: 18px;
+  height: 18px;
+  color: var(--muted);
+}
+.session-arrival {
+  min-height: 100dvh;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 24px;
+  padding: 28px;
+  background: #fff;
+}
+.session-arrival-mark {
+  font-size: 70px;
+  font-weight: 700;
+  letter-spacing: -5px;
+  color: var(--brand-blue);
+  line-height: 1;
+}
+.session-arrival-status {
+  min-height: 32px;
+  max-width: 420px;
+  text-align: center;
+}
+.session-arrival-status .button {
+  margin: 20px auto 0;
+}
+/* Fast returns stay on the same white surface; a loader appears only for a real wait. */
+.session-arrival-wait {
+  opacity: 0;
+  animation: arrival-status 180ms 650ms ease-out both;
+}
+@keyframes arrival-status {
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .signed-arrival {
+    animation: signed-arrive 420ms var(--ease-settle) both;
+  }
+  .signed-arrival > .initial-route {
+    animation: none;
+  }
+}
+@keyframes signed-arrive {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .session-arrival-wait {
+    opacity: 1;
+  }
+}
+html:has(.route-view:not([hidden]) .portfolio-chat),
+html:has(.session-arrival) {
+  background: #fff;
+}
+.shell:has(.route-view:not([hidden]) .portfolio-chat) .masthead {
+  height: 80px;
+}
+.page.narrow.portfolio-chat {
+  max-width: 720px;
+  height: calc(100dvh - 80px);
+  min-height: 420px;
+  padding: 6px 0 110px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.portfolio-chat-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex: none;
+  padding: 14px 20px;
+  border-radius: 28px;
+  background: #f5f7f9;
+}
+.portfolio-chat-heading > div {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.portfolio-chat-heading h1 {
+  font-size: 17px;
+  letter-spacing: -0.5px;
+  margin: 0;
+}
+.portfolio-chat-heading span {
+  color: var(--muted);
+  font-size: 12px;
+}
+.portfolio-saved {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 32px;
+  padding: 4px 0 4px 10px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 12px;
+  white-space: nowrap;
+}
+.portfolio-saved svg {
+  width: 15px;
+  height: 15px;
+}
+.portfolio-chat-heading .portfolio-saved span {
+  color: inherit;
+  font-size: inherit;
+}
+.portfolio-saved-number {
+  position: relative;
+  display: block;
+  height: 1.25em;
+  overflow: hidden;
+  font-variant-numeric: tabular-nums;
+}
+.portfolio-saved-track {
+  position: absolute;
+  inset: 0 0 auto;
+  display: block;
+  transition: transform 1000ms cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.portfolio-saved-track > span {
+  display: block;
+  height: 1.25em;
+  line-height: 1.25;
+  text-align: center;
+}
+.portfolio-opening {
+  display: grid;
+  grid-template-rows: 1fr;
+  opacity: 1;
+  flex: none;
+  transition:
+    grid-template-rows 620ms var(--ease-settle),
+    opacity 320ms ease;
+}
+.portfolio-opening > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.has-conversation .portfolio-opening {
+  grid-template-rows: 0fr;
+  opacity: 0;
+}
+.portfolio-scene {
+  position: relative;
+  width: 280px;
+  height: 190px;
+  margin: auto;
+  isolation: isolate;
+}
+.portfolio-scene::before {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  background: radial-gradient(ellipse, #edf7ff 0%, #fff0 70%);
+  border-radius: 50%;
+}
+.portfolio-scene-wordmark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 58px;
+  font-weight: 700;
+  letter-spacing: -4px;
+  color: var(--brand-blue);
+}
+.portfolio-orbit {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 48px;
+  offset-path: ellipse(39% 39% at 50% 50%);
+  offset-distance: var(--orbit-start);
+  offset-anchor: center;
+  offset-rotate: 0deg;
+}
+.portfolio-orb {
+  display: block;
+}
+.portfolio-orb .portfolio-mark {
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 7px 22px #315b7012;
+  background: #fff;
+}
+.portfolio-conversation {
+  flex: 1;
+  min-height: 80px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 6px 8px 12px;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  overflow-wrap: anywhere;
+  scroll-padding: 12px;
+}
+.portfolio-conversation .chat-message {
+  margin: 0 0 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.portfolio-conversation .from-val {
+  padding: 4px 0;
+  background: transparent;
+  border-radius: 0;
+  max-width: 94%;
+}
+.portfolio-conversation .from-you {
+  margin-left: auto;
+  padding: 12px 18px;
+  background: #edf6fd;
+  border: 0;
+  border-radius: 24px 24px 7px 24px;
+  max-width: 86%;
+}
+.portfolio-conversation .chat-message > p {
+  margin: 0;
+}
+.portfolio-current .chat-dots {
+  margin-top: 14px;
+}
+.portfolio-compose-dock {
+  flex: none;
+}
+.portfolio-chat .chat-composer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 68px;
+  padding: 12px 14px 12px 20px;
+  border: 1px solid #e9edf0;
+  border-radius: 30px;
+  background: #f6f7f9;
+  box-shadow: none;
+}
+.portfolio-chat .chat-composer:focus-within {
+  background: #fff;
+  border-color: #b9d6ed;
+  box-shadow: 0 0 0 4px #e0f0ff50;
+}
+.portfolio-chat .chat-input {
+  flex: 1;
+  min-width: 0;
+  min-height: 28px;
+  max-height: 120px;
+  field-sizing: content;
+}
+.portfolio-chat .chat-input::placeholder {
+  color: #68727c;
+}
+.portfolio-chat .chat-send {
+  width: 40px;
+  height: 40px;
+}
+.portfolio-add {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 42px;
+  background: transparent;
+  text-align: left;
+  color: var(--muted);
+  font-size: 16px;
+}
+.portfolio-add:disabled {
+  opacity: 0.65;
+}
+.portfolio-add-icon {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--ink);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 400;
+}
+.portfolio-compose-foot {
+  height: 34px;
+  padding: 4px 12px 0;
+}
+.portfolio-compose-foot .text-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 30px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.portfolio-compose-foot svg {
+  width: 14px;
+  height: 14px;
+}
+.portfolio-import-note {
+  margin: 0 0 18px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+.portfolio-chat-list {
+  display: grid;
+  margin: 8px 0 18px;
+}
+.portfolio-chat-subscription {
+  border-bottom: 1px solid var(--line);
+  padding: 18px 2px;
+}
+.portfolio-chat-subscription > button:first-child {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+}
+.portfolio-chat-subscription > button:first-child > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 5px;
+}
+.portfolio-chat-subscription .portfolio-mark {
+  width: 44px;
+  height: 44px;
+}
+.portfolio-chat-subscription small {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+.portfolio-chat-subscription svg {
+  width: 18px;
+  height: 18px;
+}
+.portfolio-chat-subscription > .text-button {
+  margin: 6px 0 0 58px;
+  font-size: 12px;
+}
+.portfolio-chat-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.portfolio-chat-actions .text-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+.portfolio-chat-actions svg {
+  width: 15px;
+  height: 15px;
+}
+.portfolio-service-choices {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 18px 0;
+}
+.portfolio-service-choices button {
+  display: grid;
+  justify-items: center;
+  gap: 9px;
+  background: transparent;
+  min-height: 100px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  padding: 12px 4px;
+  font-size: 13px;
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+.portfolio-service-choices button:hover {
+  background: var(--accent-surface);
+  transform: translateY(-2px);
+}
+.portfolio-confirm,
+.portfolio-advice {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  padding: 24px;
+  margin: 20px 0;
+}
+.portfolio-confirm h2,
+.portfolio-advice h2 {
+  font-size: 24px;
+  margin: 14px 0;
+}
+.portfolio-confirm > p,
+.portfolio-advice > p {
+  margin: 12px 0;
+  line-height: 1.6;
+}
+.portfolio-confirm .button {
+  margin: 16px 0 0;
+}
+.portfolio-confirm > .text-button {
+  display: block;
+  margin-top: 16px;
+}
+.portfolio-confirm-heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.portfolio-confirm {
+  padding: 20px;
+  margin: 12px 0;
+}
+.portfolio-confirm-heading h2 {
+  font-size: 21px;
+  margin: 0 0 5px;
+}
+.portfolio-confirm-heading p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+.portfolio-confirm-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.portfolio-confirm-actions .button {
+  margin: 0;
+  min-height: 46px;
+  width: auto;
+  padding: 12px 22px;
+  font-size: 14px;
+}
+.portfolio-confirm-actions .text-button {
+  font-size: 13px;
+}
+.portfolio-advice-option {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  text-align: left;
+  width: 100%;
+  padding: 18px 0;
+  background: transparent;
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-advice-option > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+}
+.portfolio-advice-option small {
+  color: var(--muted);
+  line-height: 1.5;
+}
+.portfolio-advice-option svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 600px) {
+  .portfolio-row {
+    gap: 12px;
+    padding: 22px 0;
+    flex-wrap: wrap;
+  }
+  .portfolio-row-copy strong {
+    font-size: 17px;
+  }
+  .portfolio-row-price {
+    font-size: 13px;
+    gap: 4px;
+  }
+  .portfolio-row .portfolio-mark {
+    width: 44px;
+    height: 44px;
+  }
+  .shell:has(.route-view:not([hidden]) .portfolio-chat) {
+    padding: 0 18px;
+  }
+  .shell:has(.route-view:not([hidden]) .portfolio-chat) .masthead {
+    height: 68px;
+  }
+  .page.narrow.portfolio-chat {
+    height: calc(100dvh - 68px);
+    gap: 12px;
+    padding-bottom: max(104px, calc(92px + env(safe-area-inset-bottom)));
+  }
+  .portfolio-chat-heading {
+    padding: 10px 16px;
+  }
+  .portfolio-chat-heading > div {
+    gap: 10px;
+  }
+  .portfolio-chat-heading > div > span {
+    display: none;
+  }
+  .portfolio-scene {
+    width: 250px;
+    height: 164px;
+  }
+  .portfolio-scene-wordmark {
+    font-size: 50px;
+  }
+  .portfolio-chat .chat-composer {
+    min-height: 64px;
+    padding: 10px 12px 10px 18px;
+  }
+  .portfolio-conversation .chat-message {
+    font-size: 15px;
+  }
+  .portfolio-service-choices {
+    gap: 8px;
+  }
+}
+@media (max-height: 740px) {
+  .portfolio-scene {
+    height: 126px;
+    width: 220px;
+  }
+  .portfolio-orb .portfolio-mark,
+  .portfolio-orbit {
+    width: 38px;
+    height: 38px;
+  }
+  .portfolio-scene-wordmark {
+    font-size: 44px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .route-view:has(.portfolio-chat) {
+    animation: portfolio-fade-in 320ms ease both;
+  }
+  .portfolio-current,
+  .portfolio-advice,
+  .portfolio-confirm {
+    animation: portfolio-message-in 320ms var(--ease-settle) both;
+  }
+  .portfolio-conversation > .chat-message.from-you {
+    animation: portfolio-message-in 260ms var(--ease-settle) both;
+  }
+  .portfolio-conversation > .chat-message.from-val {
+    animation: portfolio-reply-in 360ms cubic-bezier(0.2, 0.7, 0.25, 1) both;
+  }
+  .portfolio-orbit {
+    animation: brand-orbit 52s linear infinite;
+  }
+  .has-conversation .portfolio-orbit {
+    animation-play-state: paused;
+  }
+  .portfolio-orb {
+    animation: portfolio-orb-in 680ms var(--orb-delay) var(--ease-settle) both;
+  }
+  .portfolio-service-choices button {
+    animation: portfolio-message-in 350ms var(--ease-settle) both;
+  }
+  .portfolio-service-choices button:nth-child(3n + 2) {
+    animation-delay: 45ms;
+  }
+  .portfolio-service-choices button:nth-child(3n) {
+    animation-delay: 90ms;
+  }
+  .portfolio-chat button:active:not(:disabled) {
+    transform: scale(0.98);
+  }
+}
+@keyframes portfolio-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes portfolio-message-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes portfolio-reply-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes portfolio-orb-in {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+/* The subscription marks appear during ingestion, then give way to the conversation. */
+.genie-chat .portfolio-chat-heading {
+  justify-content: flex-end;
+  padding: 0 6px;
+  min-height: 28px;
+  background: transparent;
+}
+.genie-chat .portfolio-opening {
+  display: block;
+  height: 200px;
+  opacity: 1;
+  transition: height 620ms var(--ease-settle);
+}
+.genie-chat .portfolio-scene {
+  --scene-width: 320px;
+  --scene-height: 200px;
+  width: var(--scene-width);
+  height: var(--scene-height);
+  transition:
+    width 620ms var(--ease-settle),
+    height 620ms var(--ease-settle);
+}
+.genie-chat.has-conversation .portfolio-opening {
+  height: 120px;
+  opacity: 1;
+}
+.genie-chat.has-conversation .portfolio-scene {
+  --scene-width: 260px;
+  --scene-height: 120px;
+}
+.genie-chat.has-conversation .portfolio-scene-wordmark {
+  font-size: 44px;
+}
+.genie-chat .portfolio-opening > div {
+  overflow: visible;
+}
+.genie-chat.has-conversation .portfolio-orbit {
+  width: 30px;
+  height: 30px;
+}
+.genie-chat.has-conversation .portfolio-mark {
+  width: 30px;
+  height: 30px;
+}
+.genie-chat .portfolio-orbit,
+.genie-chat .portfolio-mark {
+  transition:
+    width 620ms var(--ease-settle),
+    height 620ms var(--ease-settle);
+}
+.genie-chat .portfolio-scene-wordmark {
+  transition: font-size 620ms var(--ease-settle);
+}
+.genie-chat .portfolio-orbit {
+  offset-path: ellipse(36% 42% at 50% 50%);
+}
+.genie-chat .portfolio-conversation .from-val {
+  padding: 15px 19px;
+  background: var(--accent-surface);
+  border-radius: 23px 23px 23px 7px;
+  max-width: 88%;
+}
+.genie-chat .portfolio-conversation .from-you {
+  background: #f4f5f7;
+  border-radius: 23px 23px 7px 23px;
+}
+.genie-chat .portfolio-conversation .chat-message p {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.genie-chat .val-typing {
+  display: flex;
+  align-items: center;
+  min-width: 68px;
+  min-height: 50px;
+}
+.genie-chat .val-typing .chat-dots {
+  margin: 0;
+}
+.val-quick-replies {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0 0 12px;
+}
+.subscription-switch-action {
+  margin-top: 18px;
+}
+.subscription-switch-destination {
+  display: block;
+  margin-top: 6px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+}
+.portfolio-subscription {
+  border-bottom: 1px solid var(--line);
+}
+.portfolio-subscription:last-child {
+  border-bottom: 0;
+}
+.portfolio-subscription > .portfolio-row {
+  border-bottom: 0;
+}
+.subscription-row-offer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 18px 24px 20px;
+  border-top: 1px solid var(--line);
+  background: var(--accent-surface);
+}
+.subscription-row-offer-copy {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+.subscription-row-offer-copy strong {
+  font-size: 16px;
+}
+.subscription-row-offer-copy span,
+.subscription-row-offer-copy p {
+  font-size: 13px;
+}
+.subscription-row-offer-copy p {
+  margin: 4px 0 0;
+}
+.subscription-row-offer > .subscription-switch-action {
+  margin: 0;
+}
+.subscription-row-offer .button {
+  min-width: 220px;
+  width: auto;
+  min-height: 48px;
+  background: var(--selection);
+  color: #000;
+  text-decoration: none;
+  font-weight: 700;
+}
+.subscription-row-offer .button svg {
+  width: 18px;
+  height: 18px;
+}
+@media (max-width: 600px) {
+  .subscription-row-offer {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
+    padding: 16px 18px 18px;
+  }
+  .subscription-row-offer-copy,
+  .subscription-row-offer > .subscription-switch-action {
+    min-width: 0;
+    width: 100%;
+  }
+  .subscription-row-offer-copy,
+  .portfolio-row-copy strong,
+  .subscription-switch-action [role="alert"] {
+    overflow-wrap: anywhere;
+  }
+  .subscription-row-offer .button {
+    min-width: 0;
+    width: 100%;
+    min-height: 48px;
+  }
+}
+.val-quick-replies button {
+  border: 1px solid var(--brand-blue);
+  border-radius: 99px;
+  background: var(--brand-blue);
+  color: var(--ink);
+  padding: 11px 18px;
+  min-height: 44px;
+  font-size: 13px;
+  transition:
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+.val-quick-replies button:hover {
+  box-shadow: 0 3px 12px #91bfe34d;
+}
+.val-quick-replies button:active {
+  transform: scale(0.97);
+}
+.genie-chat .chat-composer {
+  flex: none;
+}
+@media (max-width: 600px) {
+  .genie-chat .portfolio-scene {
+    --scene-width: 280px;
+    --scene-height: 180px;
+  }
+  .genie-chat .portfolio-opening {
+    height: 180px;
+  }
+  .genie-chat.has-conversation .portfolio-scene {
+    --scene-width: 240px;
+    --scene-height: 116px;
+  }
+  .genie-chat.has-conversation .portfolio-opening {
+    height: 116px;
+  }
+  .genie-chat .portfolio-conversation .chat-message p {
+    font-size: 15px;
+  }
+}
+@media (max-height: 740px) {
+  .genie-chat .portfolio-scene {
+    --scene-width: 260px;
+    --scene-height: 146px;
+  }
+  .genie-chat .portfolio-opening {
+    height: 146px;
+  }
+  .genie-chat.has-conversation .portfolio-scene {
+    --scene-width: 230px;
+    --scene-height: 98px;
+  }
+  .genie-chat.has-conversation .portfolio-opening {
+    height: 98px;
+  }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .genie-chat .portfolio-scene {
+    animation: portfolio-orbit-progress 52s linear infinite;
+  }
+  .genie-chat .portfolio-orbit {
+    animation: none;
+    offset-distance: calc(var(--orbit-start) + var(--portfolio-orbit-progress));
+  }
+  .genie-chat .portfolio-orb {
+    animation: val-genie-pop 1000ms var(--orb-delay) cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+}
+/* One inherited clock keeps staggered arrivals evenly spaced for the whole orbit. */
+@property --portfolio-orbit-progress {
+  syntax: "<percentage>";
+  inherits: true;
+  initial-value: 0%;
+}
+@keyframes portfolio-orbit-progress {
+  from {
+    --portfolio-orbit-progress: 0%;
+  }
+  to {
+    --portfolio-orbit-progress: 100%;
+  }
+}
+.val-quick-replies button:disabled {
+  cursor: default;
+  opacity: 1;
+}
+.route-view[hidden] {
+  display: none;
+}
+@keyframes val-genie-pop {
+  0% {
+    opacity: 0;
+    transform: translate(
+        calc(-1 * var(--scene-width) * var(--pop-x)),
+        calc(-1 * var(--scene-height) * var(--pop-y))
+      )
+      scale(0.2);
+  }
+  68% {
+    opacity: 1;
+    transform: translate(
+        calc(var(--scene-width) * var(--pop-x) * 0.07),
+        calc(var(--scene-height) * var(--pop-y) * 0.07)
+      )
+      scale(1.06);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+}
+.portfolio-value-option {
+  margin: 16px 0;
+  padding: 20px;
+  border: 1px solid #e1eaf0;
+  border-radius: 24px;
+  background: #fff;
+}
+.portfolio-value-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.portfolio-value-heading > span:not(.portfolio-mark) {
+  flex: 1;
+  min-width: 0;
+}
+.genie-chat .portfolio-value-heading .portfolio-mark {
+  width: 44px;
+  height: 44px;
+  flex: none;
+}
+.portfolio-value-heading small {
+  display: block;
+  color: var(--muted);
+  font-weight: 400;
+  margin-top: 4px;
+}
+.portfolio-value-price {
+  text-align: right;
+  font-size: 16px;
+}
+.portfolio-value-saving {
+  color: #245471;
+  font-weight: 600;
+  font-size: 14px;
+}
+.portfolio-fit-note {
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: var(--accent-surface);
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.5;
+}
+.portfolio-fit-note strong,
+.portfolio-fit-note span {
+  display: block;
+}
+.portfolio-fit-note span {
+  margin-top: 4px;
+}
+.portfolio-value-option details {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.portfolio-value-option summary {
+  width: fit-content;
+  cursor: pointer;
+  padding: 8px 0;
+}
+.portfolio-value-option details a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+.val-research-label {
+  margin-left: 12px;
+  color: #42677e;
+  font-size: 14px;
+}
+.val-research-label small {
+  display: block;
+  margin-top: 3px;
+  color: var(--ink);
+  font-size: 12px;
+}
+.genie-chat .portfolio-conversation .ingestion-bubble {
+  position: relative;
+  padding: 0;
+  min-height: 50px;
+  overflow: hidden;
+  box-sizing: border-box;
+  animation: none;
+}
+.ingestion-measure {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  pointer-events: none;
+  padding: 15px 19px;
+  box-sizing: border-box;
+}
+.ingestion-layer {
+  position: absolute;
+  inset: 0;
+  padding: 15px 19px;
+  box-sizing: border-box;
+}
+.ingestion-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #42677e;
+  font-size: 14px;
+  min-height: 20px;
+}
+.ingestion-status .chat-dots {
+  flex: none;
+  margin: 0;
+}
+.ingestion-message {
+  opacity: 0;
+}
+.ingestion-bubble.is-ready > .ingestion-status {
+  opacity: 0;
+}
+.ingestion-bubble.is-ready > .ingestion-message {
+  opacity: 1;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .ingestion-bubble {
+    transition:
+      width 600ms cubic-bezier(0.22, 1, 0.36, 1),
+      height 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .ingestion-bubble > .ingestion-status {
+    transition: opacity 180ms ease;
+  }
+  .ingestion-bubble > .ingestion-message {
+    transition: opacity 360ms 160ms ease;
+  }
+  .ingestion-bubble ~ .val-quick-replies {
+    animation: portfolio-reply-in 400ms 260ms ease both;
+  }
+}
+.portfolio-search-again {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding-top: 12px;
+}
+.portfolio-search-again button {
+  min-height: 44px;
+  white-space: nowrap;
+}
+.portfolio-review-result > h2 {
+  font-size: 18px;
+  margin: 24px 4px 0;
+}
+.portfolio-remembered-need {
+  border-left: 3px solid var(--accent, #8ec5ed);
+  padding: 8px 14px;
+  margin: 0 0 20px;
+  background: #f3f8fc;
+  border-radius: 0 10px 10px 0;
+}
+.portfolio-remembered-need strong {
+  font-size: 13px;
+  color: #526576;
+}
+.portfolio-remembered-need p {
+  margin: 5px 0 0;
+}
+.insight-payoff {
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: -0.3px;
+  margin: 8px 0 14px;
+}
+.insight-need,
+.insight-fit {
+  font-size: 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.insight-need strong {
+  display: block;
+  color: #526576;
+  font-size: 12px;
+}
+.portfolio-review-result .portfolio-advice {
+  margin-top: 10px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .portfolio-review-result {
+    animation: portfolio-reply-in 560ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .portfolio-review-result .portfolio-advice {
+    animation: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .portfolio-saved-track {
+    transition: none;
+  }
+  .session-arrival * {
+    animation: none !important;
+    transition: none !important;
+  }
+  .portfolio-opening {
+    transition: none;
+  }
+  .genie-chat .portfolio-scene,
+  .genie-chat .portfolio-scene-wordmark {
+    transition: none;
+  }
+  .portfolio-row,
+  .portfolio-service-choices button {
+    transition: none;
+    transform: none !important;
+  }
+}
+.switch-example-entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 16px 0 28px;
+  padding: 20px 24px;
+  border: 1px solid #dceaf4;
+  border-radius: 24px;
+  background: #f5faff;
+}
+.switch-example-entry h2 {
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+.switch-example-entry p {
+  margin: 0;
+  font-size: 14px;
+  color: #53616d;
+}
+.switch-example-summary {
+  margin-top: 32px;
+}
+.switch-example-selection {
+  display: grid;
+  gap: 12px;
+  max-width: 500px;
+}
+.switch-example-selection select {
+  width: 100%;
+  min-height: 48px;
+  padding: 12px 16px;
+  border: 1px solid #dceaf4;
+  border-radius: 16px;
+  background: white;
+  color: #111;
+  font: inherit;
+}
+.switch-example-price {
+  font-size: 32px;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+.switch-example-price span {
+  padding: 0 12px;
+  color: #8cbddf;
+}
+.switch-example-price small {
+  font-size: 16px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+@media (max-width: 600px) {
+  .switch-example-entry {
+    padding: 18px;
+    gap: 12px;
+  }
+  .switch-example-entry .button {
+    min-width: 0;
+    padding-inline: 20px;
+  }
+}

@@ -1,0 +1,296 @@
+{
+  "version": "0.5",
+  "dataClass": "authored_contract_examples_not_execution_evidence",
+  "valid": [
+    {
+      "definition": "Money",
+      "value": {
+        "currency": "GBP",
+        "amountMinor": 1400
+      }
+    },
+    {
+      "definition": "ObservedMoney",
+      "value": {
+        "currency": "USD",
+        "amountMinor": 1400
+      }
+    },
+    {
+      "definition": "PolicyDraft",
+      "value": {
+        "purpose": "Editable call notes with who-said-what retained",
+        "requiredCapabilities": [
+          "editable_text",
+          "speaker_labels"
+        ],
+        "recurringCeiling": {
+          "currency": "GBP",
+          "amountMinor": 1500
+        },
+        "preserveHistory": true,
+        "allowInvestigation": null,
+        "interpretationNotes": [],
+        "unsupportedRequirements": []
+      }
+    },
+    {
+      "definition": "ModelRecommendation",
+      "value": {
+        "action": "investigate",
+        "candidateId": null,
+        "policyRevision": 1,
+        "evidenceIds": [
+          "sample_observed_001"
+        ],
+        "explanation": "Neither returned replacement output retained speakers.",
+        "uncertainties": []
+      }
+    },
+    {
+      "definition": "ReturnCommand",
+      "value": {
+        "operationId": "synthetic_operation_001",
+        "returnToken": "synthetic_callback_token",
+        "subscriptionId": null,
+        "outcome": "cancelled"
+      }
+    },
+    {
+      "definition": "ConsentCommand",
+      "value": {
+        "previewId": "synthetic_preview_001",
+        "previewHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "approvePurchase": true,
+        "approveOldExitAfterReadiness": true
+      }
+    },
+    {
+      "definition": "ExitAuthorizationCommand",
+      "value": {
+        "reviewId": "synthetic_exit_review_001",
+        "reviewHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "approveRemainingExits": true
+      }
+    },
+    {
+      "definition": "SampleOutput",
+      "value": {
+        "editableText": "Can we deliver the draft by Friday?",
+        "turns": [
+          {
+            "speaker": null,
+            "text": "Can we deliver the draft by Friday?"
+          }
+        ]
+      }
+    },
+    {
+      "definition": "Transcript",
+      "value": {
+        "id": "history_001",
+        "title": "Project scope",
+        "turns": [
+          {
+            "speaker": "Alex",
+            "text": "The first phase includes a written proposal."
+          },
+          {
+            "speaker": "Jordan",
+            "text": "Agreed. I will prepare the proposal."
+          }
+        ]
+      }
+    },
+    {
+      "definition": "ReadAccountArgs",
+      "value": {}
+    },
+    {
+      "definition": "ListPlansArgs",
+      "value": {}
+    },
+    {
+      "definition": "GetQuoteArgs",
+      "value": {
+        "candidateId": "b_02"
+      }
+    },
+    {
+      "definition": "TestCandidateArgs",
+      "value": {
+        "candidateId": "b_01"
+      }
+    },
+    {
+      "definition": "ReadArtifactArgs",
+      "value": {
+        "artifactId": "synthetic_artifact_001"
+      }
+    },
+    {
+      "definition": "PlanSummary",
+      "value": {
+        "candidateId": "b_02",
+        "providerId": "provider_b",
+        "planId": "b_02",
+        "label": "Provider B Pro",
+        "marketingText": "Editable call exports"
+      }
+    },
+    {
+      "definition": "Job",
+      "value": {
+        "id": "synthetic_job_setup",
+        "caseId": "synthetic_case",
+        "eventId": "setup",
+        "policyRevision": 0,
+        "status": "QUEUED",
+        "claimOwner": null,
+        "claimGeneration": 0,
+        "leaseExpiresAt": null,
+        "heartbeatAt": null,
+        "createdAt": "2026-10-09T10:00:00Z",
+        "updatedAt": "2026-10-09T10:00:00Z"
+      }
+    }
+  ],
+  "invalid": [
+    {
+      "definition": "Money",
+      "value": {
+        "currency": "GBP",
+        "amountMinor": 14.5
+      },
+      "reason": "Fractional minor units"
+    },
+    {
+      "definition": "Money",
+      "value": {
+        "currency": "GBP",
+        "amountMinor": -1
+      },
+      "reason": "Negative quote"
+    },
+    {
+      "definition": "Money",
+      "value": {
+        "currency": "USD",
+        "amountMinor": 1400
+      },
+      "reason": "Wrong quote currency"
+    },
+    {
+      "definition": "ConsentCommand",
+      "value": {
+        "previewId": "p",
+        "previewHash": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+        "approvePurchase": true,
+        "approveOldExitAfterReadiness": false
+      },
+      "reason": "Unapproved required exit flag"
+    },
+    {
+      "definition": "ExitAuthorizationCommand",
+      "value": {
+        "reviewId": "e",
+        "reviewHash": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+        "approveRemainingExits": true,
+        "approvePurchase": true
+      },
+      "reason": "Exit authority cannot accept a purchase flag"
+    },
+    {
+      "definition": "ReturnCommand",
+      "value": {
+        "operationId": "op",
+        "returnToken": "token",
+        "subscriptionId": null,
+        "outcome": "approved",
+        "ownerId": "other"
+      },
+      "reason": "Privileged owner injection"
+    },
+    {
+      "definition": "PlanSummary",
+      "value": {
+        "candidateId": "b_02",
+        "providerId": "provider_b",
+        "planId": "b_02",
+        "label": "Pro",
+        "marketingText": "Export",
+        "speakerLabels": true
+      },
+      "reason": "Hidden capability configuration supplied to model"
+    },
+    {
+      "definition": "ModelRecommendation",
+      "value": {
+        "action": "switch",
+        "candidateId": "b_02",
+        "policyRevision": 1,
+        "evidenceIds": [],
+        "explanation": "Good"
+      },
+      "reason": "Missing required uncertainties field"
+    },
+    {
+      "definition": "ModelRecommendation",
+      "value": {
+        "action": "buy",
+        "candidateId": "b_02",
+        "policyRevision": 1,
+        "evidenceIds": [],
+        "explanation": "Good",
+        "uncertainties": []
+      },
+      "reason": "Unknown action"
+    },
+    {
+      "definition": "GetQuoteArgs",
+      "value": {
+        "candidateId": "b_02",
+        "accountId": "someone_else"
+      },
+      "reason": "Arbitrary account injection"
+    },
+    {
+      "definition": "ReadAccountArgs",
+      "value": {
+        "scenario": "feature_removed"
+      },
+      "reason": "Scenario/answer leakage"
+    },
+    {
+      "definition": "Job",
+      "value": {
+        "id": "synthetic_job_setup",
+        "caseId": "synthetic_case",
+        "eventId": "setup",
+        "policyRevision": -1,
+        "status": "QUEUED",
+        "claimOwner": null,
+        "claimGeneration": 0,
+        "leaseExpiresAt": null,
+        "heartbeatAt": null,
+        "createdAt": "2026-10-09T10:00:00Z",
+        "updatedAt": "2026-10-09T10:00:00Z"
+      },
+      "reason": "Negative setup revision"
+    },
+    {
+      "definition": "PolicyFields",
+      "value": {
+        "purpose": "No supported capability selected",
+        "requiredCapabilities": [],
+        "recurringCeiling": {
+          "currency": "GBP",
+          "amountMinor": 1500
+        },
+        "preserveHistory": true,
+        "allowInvestigation": true
+      },
+      "reason": "Confirmed policy requires at least one supported capability; drafts may remain unresolved."
+    }
+  ]
+}

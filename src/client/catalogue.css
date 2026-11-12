@@ -1,0 +1,393 @@
+/* The reference catalogue stays separate from personalised comparison results. */
+.logo-catalogue {
+  max-width: 900px;
+  margin: 10px auto 0;
+}
+.insight-page {
+  max-width: 960px;
+}
+.insight-page > section,
+.insight-catalogue {
+  margin-top: 32px;
+}
+.insight-page h2 {
+  font-size: 21px;
+  letter-spacing: -0.025em;
+  margin: 0 0 16px;
+}
+.insight-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.insight-card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid #dfe8ef;
+  border-radius: 24px;
+  background: #fff;
+}
+.insight-heading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.insight-heading > div {
+  min-width: 0;
+}
+.insight-heading h3,
+.insight-timeline h3 {
+  margin: 0;
+  font-size: 17px;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+.insight-heading p {
+  margin: 5px 0 0;
+}
+.insight-heading .portfolio-mark {
+  flex: none;
+}
+.insight-summary {
+  margin: 20px 0 14px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+.insight-result > summary,
+.insight-catalogue > summary,
+.insight-legacy > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 44px;
+  cursor: pointer;
+  color: #285b82;
+  font-weight: 600;
+}
+.insight-result > summary svg,
+.insight-catalogue > summary svg {
+  width: 18px;
+  height: 18px;
+  flex: none;
+}
+.insight-result[open] > summary svg,
+.insight-catalogue[open] > summary svg {
+  transform: rotate(90deg);
+}
+.insight-result > .portfolio-advice {
+  padding: 12px 0 0;
+  margin: 0;
+  border: 0;
+  box-shadow: none;
+  background: transparent;
+}
+.insight-result .portfolio-value-heading {
+  flex-wrap: wrap;
+}
+.insight-result .portfolio-value-price {
+  margin-left: auto;
+}
+.insight-status,
+.insight-empty,
+.insight-notice {
+  padding: 22px;
+  border-radius: 22px;
+  background: #eaf4fd;
+}
+.insight-notice {
+  margin: 20px 0;
+}
+.insight-status h2,
+.insight-empty h2 {
+  margin-top: 0;
+}
+.insight-catalogue,
+.insight-legacy {
+  padding-top: 18px;
+  border-top: 1px solid #dfe8ef;
+}
+.insight-catalogue > h2 {
+  margin-top: 22px;
+}
+.insight-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.insight-timeline li {
+  display: flex;
+  gap: 16px;
+  padding: 0 0 24px;
+}
+.insight-event-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #76acd5;
+  margin: 6px 0 0;
+  flex: none;
+}
+.insight-event-dot.is-incomplete {
+  background: #ba9567;
+}
+.insight-timeline p {
+  margin: 6px 0;
+}
+.insight-timeline time {
+  color: var(--muted);
+  font-size: 13px;
+}
+@media (max-width: 720px) {
+  .insight-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .insight-card {
+    padding: 18px;
+    border-radius: 20px;
+  }
+}
+.subscription-searchbar {
+  position: sticky;
+  top: 12px;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 8px 16px 8px 20px;
+  min-height: 60px;
+  border: 1px solid #dce5ed;
+  border-radius: 99px;
+  background: #fffffffa;
+  box-shadow: 0 4px 18px #163c5a04;
+  transition:
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.subscription-searchbar:focus-within {
+  border-color: #6895b8;
+  box-shadow: 0 0 0 3px #dfedfa;
+}
+.subscription-searchbar > svg {
+  width: 22px;
+  height: 22px;
+  color: var(--ink);
+}
+.subscription-search {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  padding: 9px 0;
+  min-height: 42px;
+  background: transparent;
+  color: var(--ink);
+  font-size: 17px;
+}
+.subscription-search::placeholder {
+  color: #6b7680;
+}
+.subscription-search:focus-visible {
+  outline: none;
+}
+.subscription-search::-webkit-search-cancel-button {
+  -webkit-appearance: none;
+}
+.subscription-search-clear {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  padding: 12px;
+  border-radius: 50%;
+  background: #edf4fa;
+}
+.subscription-search-clear svg {
+  width: 17px;
+  height: 17px;
+}
+.subscription-logo-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 30px 18px;
+  list-style: none;
+  padding: 0;
+  margin: 34px 0 0;
+}
+.subscription-logo-grid li {
+  min-width: 0;
+}
+.subscription-logo-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 13px;
+  width: 100%;
+  padding: 8px 2px;
+  background: transparent;
+  border-radius: 24px;
+  animation: logo-arrive 0.32s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.subscription-logo-button .brand-mark,
+.service-detail .brand-mark {
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  border: 1px solid #e5ebf0;
+  box-shadow: 0 3px 12px #193f5e05;
+  overflow: hidden;
+  transition:
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.18s,
+    box-shadow 0.18s;
+}
+.subscription-logo-button .brand-logo,
+.service-detail .brand-logo {
+  width: 62px;
+  height: 62px;
+}
+.subscription-logo-name {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.4;
+  min-height: 40px;
+  max-width: 100%;
+  text-align: center;
+  overflow-wrap: anywhere;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.subscription-logo-button:active .brand-mark {
+  transform: scale(0.95);
+  border-color: #b7d6ef;
+}
+.logo-skeleton > span {
+  width: 94px;
+  height: 94px;
+  margin: 8px auto 40px;
+  border-radius: 50%;
+  background: #e6f0f8;
+}
+.logo-catalogue .catalogue-empty {
+  padding: 70px 20px;
+  text-align: center;
+}
+.logo-catalogue .catalogue-empty h2 {
+  font-size: 24px;
+}
+.service-detail .detail-identity {
+  padding-top: 4px;
+}
+.detail-price-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px 20px;
+}
+.detail-price-heading select {
+  min-height: 44px;
+  padding: 8px 12px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  font-size: 14px;
+}
+@media (hover: hover) {
+  .subscription-logo-button:hover .brand-mark {
+    transform: translateY(-3px);
+    border-color: #bdd8ed;
+    box-shadow: 0 8px 20px #193f5e0b;
+  }
+}
+@keyframes logo-arrive {
+  from {
+    opacity: 0;
+    transform: translateY(9px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@media (max-width: 800px) {
+  .subscription-logo-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 26px 14px;
+  }
+  .subscription-logo-button .brand-mark,
+  .logo-skeleton > span {
+    width: 80px;
+    height: 80px;
+  }
+  .subscription-logo-button .brand-logo {
+    width: 54px;
+    height: 54px;
+  }
+}
+@media (max-width: 600px) {
+  .logo-catalogue {
+    margin-top: 4px;
+  }
+  .subscription-searchbar {
+    min-height: 56px;
+    padding: 6px 12px 6px 16px;
+    gap: 10px;
+    top: 8px;
+  }
+  .subscription-search {
+    font-size: 16px;
+  }
+  .subscription-logo-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px 9px;
+    margin-top: 26px;
+  }
+  .subscription-logo-button {
+    gap: 11px;
+    padding: 6px 0;
+  }
+  .subscription-logo-button .brand-mark,
+  .logo-skeleton > span {
+    width: 64px;
+    height: 64px;
+  }
+  .subscription-logo-button .brand-logo {
+    width: 44px;
+    height: 44px;
+  }
+  .subscription-logo-name {
+    font-size: 12px;
+    min-height: 34px;
+  }
+}
+@media (max-width: 359px) {
+  .subscription-logo-button .brand-mark,
+  .logo-skeleton > span {
+    width: 56px;
+    height: 56px;
+  }
+  .subscription-logo-button .brand-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .subscription-logo-name {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .subscription-logo-button {
+    animation: none;
+  }
+  .subscription-logo-button .brand-mark,
+  .subscription-searchbar {
+    transition: none;
+  }
+  .subscription-logo-button:hover .brand-mark,
+  .subscription-logo-button:active .brand-mark {
+    transform: none;
+  }
+}
