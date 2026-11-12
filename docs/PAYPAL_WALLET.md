@@ -4,7 +4,7 @@ This optional connector uses KERNEL to read PayPal statements and automatic-paym
 
 ## Setup
 
-Set `VAL_PAYPAL_WALLET=true`, `KERNEL_API_KEY` and `PAYPAL_WALLET_ENVIRONMENT`. Restrict the KERNEL key to the required project, browsers and profiles. Use separate Sandbox and live configurations.
+Set `VAL_PAYPAL_WALLET=true`, `KERNEL_API_KEY` and `PAYPAL_WALLET_ENVIRONMENT`. Restrict the KERNEL key to the required project, browsers and profiles. For real accounts, set `PAYPAL_WALLET_ENVIRONMENT=live`. Use a separate database and credentials from Sandbox testing.
 
 The owner connects explicitly and signs in on PayPal in the remote browser. The fixed server workflow reads payment records, removes temporary reports and stores billing evidence. Recurrence is inferred where the available records support it; uncertain frequency needs confirmation.
 

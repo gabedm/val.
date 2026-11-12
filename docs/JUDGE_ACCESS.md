@@ -1,4 +1,4 @@
-# Sandbox demo setup
+# Sandbox test setup
 
 The public release does not include a hosted invitation, buyer password, merchant credentials or test agreement IDs.
 

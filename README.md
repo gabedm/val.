@@ -2,7 +2,7 @@
 
 Val finds better-value subscriptions around what you actually use. Tell it what matters, compare the options and let it keep checking on your schedule.
 
-Built with PayPal Sandbox, Gemini and KERNEL. One React client, one Node server and PostgreSQL. The repository includes the onboarding, research, monitoring and switching code. You bring your own accounts and credentials.
+Built with PayPal, Gemini and KERNEL. One React client, one Node server and PostgreSQL. The repository includes the onboarding, research, monitoring and switching code. You bring your own accounts and credentials.
 
 ## Run it
 
@@ -19,7 +19,17 @@ Need a local database? Run `npm run db:local` in another terminal and use the co
 
 For development, run `npm run dev:server` and `npm run dev:client` in separate terminals. Set `APP_ORIGIN=http://127.0.0.1:5173`.
 
-## Connect your data
+## Connect a real PayPal account
+
+Live-account configuration is supported. Deploy over HTTPS with a fresh database and your own approved PayPal login app.
+
+- Set `PAYPAL_IDENTITY_ENVIRONMENT=live`, `PAYPAL_LIVE_LOGIN_CLIENT_ID` and `PAYPAL_LIVE_LOGIN_CLIENT_SECRET`. Register your HTTPS callback with PayPal.
+- For payment history, enable the separate KERNEL connection with `VAL_PAYPAL_WALLET=true`, `PAYPAL_WALLET_ENVIRONMENT=live` and your server-side `KERNEL_API_KEY`. The account owner signs in directly to PayPal and consents to the import.
+- Keep Sandbox and live credentials separate. Login alone supplies identity, not wallet history.
+
+Read [live identity setup](docs/PAYPAL_IDENTITY.md) and [wallet setup](docs/PAYPAL_WALLET.md) first. Browser automation needs the required provider permission. Live configuration does not mean every account or commercial checkout is supported.
+
+## Connections
 
 PayPal login identifies your account. It does not grant access to your payment history.
 
@@ -27,7 +37,7 @@ PayPal login identifies your account. It does not grant access to your payment h
 - [Wallet import](docs/PAYPAL_WALLET.md): optional KERNEL connection that reads PayPal statements and identifies recurring payments. No email access.
 - [Switching](docs/SUBSCRIPTION_SWITCHING.md): approval, purchase, activation check, cancellation and confirmation. Disabled by default. Commercial-provider support needs separate testing and permission.
 
-Nothing here connects to the hosted demo's database, keys or accounts. Usage answers start blank. Test data is synthetic. Provider names are plain text; third-party logo images are excluded.
+Each installation uses its own database, keys and accounts. Usage answers start blank. Test data is synthetic. Provider names are plain text; third-party logo images are excluded.
 
 ## Check it
 
