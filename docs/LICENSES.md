@@ -24,7 +24,7 @@ Versions below match the pinned application manifest. License identifiers come f
 | `@types/react` / `@types/react-dom` | 19.3.0         | MIT        |
 | `@vitejs/plugin-react`              | 6.1.1          | MIT        |
 | `drizzle-kit`                       | 0.31.11        | MIT        |
-| `embedded-postgres`                 | 18.4.0-beta.17 | MIT        |
+| `embedded-postgres`                 | 17.10.0-beta.17 | MIT        |
 | `json-schema-to-typescript`         | 16.0.0         | MIT        |
 | `prettier`                          | 3.9.9          | MIT        |
 | `typescript`                        | 7.0.2          | Apache-2.0 |
